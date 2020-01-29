@@ -1,0 +1,333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="keywords" content="Aoki,Atsushi,Smalltalk,Smalltalker,Program,Programmer,Object,Oriented,Programming">
+<meta name="description" content="青木淳（あおきあつし）のホームページ">
+<meta name="author" content="AOKI Atsushi">
+<link rev="made" href="mailto:atsushi@cc.kyoto-su.ac.jp">
+<link rel="index" href="index-j.html">
+<link rel="shortcut icon" href="http://www.cc.kyoto-su.ac.jp/~atsushi/icons/aoki.ico">
+<style type="text/css">
+<!--
+body {
+  background-color : #ffffff;
+  margin : 20px;
+  padding : 10px;
+  font-family : serif;
+  font-size : 10pt;
+}
+a {
+  text-decoration : underline;
+  color : #000000;
+}
+a:link {
+  background-color : #ffddbb;
+}
+a:visited {
+  background-color : #ccffcc;
+}
+a:hover {
+  background-color : #dddddd;
+}
+a:active {
+  background-color : #dddddd;
+}
+div.belt {
+  background-color : #eeeeee;
+  padding : 0px 4px;
+}
+div.belt-yellow {
+  background-color : #ffffcc;
+  padding : 0px 4px;
+}
+div.belt-blue {
+  background-color : #ddeeff;
+  padding : 0px 4px;
+}
+div.belt-pink {
+  background-color : #ffeedd;
+  padding : 0px 4px;
+}
+div.right-small {
+  text-align : right;
+  font-size : 8pt;
+}
+img.border {
+  border-width : 1px;
+  border-color : #000000;
+  vertical-align : middle;
+}
+img.borderless {
+  border-width : 0px;
+  vertical-align : middle;
+}
+p.belt {
+  background-color : #ffeedd;
+  padding : 4px 8px;
+}
+p.belt-blue {
+  background-color : #ddeeff;
+  padding : 4px 8px;
+}
+pre.belt {
+  background-color : #ddeeff;
+  padding : 4px 8px;
+}
+pre.belt-yellow {
+  background-color : #ffffcc;
+  padding : 4px 8px;
+}
+table {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  font-family : serif;
+  font-size : 10pt;
+}
+table.profile {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  font-family : serif;
+  font-size : 10pt;
+  margin-top : 8px;
+  margin-left : 8px;
+  margin-right : 8px;
+  margin-bottom : 8px;
+}
+table.belt {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  background-color : #ffeedd;
+  padding : 0px 0px;
+  width : 100%;
+}
+table.content {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 2px 4px;
+}
+table.font-fixed {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 2px 4px;
+  font-family : monospace;
+}
+table.nest {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 0px 0px;
+}
+td {
+  padding : 0px 0px;
+  vertical-align : middle;
+}
+td.center {
+  text-align : center;
+}
+td.center-half {
+  text-align : center;
+  width : 50%;
+  font-size : 8pt;
+}
+td.center-small {
+  text-align : center;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.center-small-nopadding {
+  text-align : center;
+  font-size : 8pt;
+  padding : 0px 0px;
+}
+td.center-white {
+  text-align : center;
+  background-color : #ffffff;
+}
+td.center-small-white {
+  text-align : center;
+  font-size : 8pt;
+  background-color : #ffffff;
+}
+td.center-border1 {
+  text-align : center;
+  vertical-align : middle;
+  empty-cells : show;
+  border-style : solid;
+  border-width : 1px;
+  border-color : #ffc080;
+  width : 22px;
+  height : 22px;
+}
+td.left-small {
+  text-align : left;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.left-small-white {
+  text-align : left;
+  font-size : 8pt;
+  padding : 0px 4px;
+  background-color : #ffffff;
+}
+td.right-small {
+  text-align : right;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.right-small-white {
+  text-align : right;
+  font-size : 8pt;
+  padding : 0px 4px;
+  background-color : #ffffff;
+}
+th {
+  padding : 0px 0px;
+  vertical-align : middle;
+}
+#menu {
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+  height: 32px;
+}
+#menu ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-align: center;
+  clear: both;
+}
+#menu li {
+  margin: 0px 5px 0px 0px;
+  padding: 0px;
+  float: left;
+}
+#menu a {
+  display: block;
+  padding: 2px 4px;
+  text-decoration: none;
+  margin: 0px;
+  font-weight: bold;
+  background: #FFFFFF;
+  color: #333333;
+  border: 1px solid #666666;
+}
+#menu a:hover {
+  display: block;
+  padding: 2px 4px;
+  border-bottom: 1px solid #000000;
+  text-decoration: none;
+  background: #FFCC66;
+}
+#menu .current {
+  background-color: #F45F57;
+  font-weight: bold;
+  color: #FFFFFF;
+  border: 1px solid #333333;
+}
+-->
+</style>
+<title>TryJOGL（OpenGLを用いてJavaで3次元グラフィックスをやってみよう）</title>
+</head>
+<body>
+<div id="menu">
+<ul>
+  <li><a href="../Lectures/index-j.html#TryJOGL">Javaプログラム集</a></li>
+  <li><a href="index-j.html" class="current">TryJODL</a></li>
+  <li><a href="version0.html">0</a></li>
+  <li><a href="version1.html">1</a></li>
+  <li><a href="version2.html">2</a></li>
+  <li><a href="version3.html">3</a></li>
+  <li><a href="version4.html">4</a></li>
+  <li><a href="version5.html">5</a></li>
+  <li><a href="version6.html">6</a></li>
+  <li><a href="version7.html">7</a></li>
+  <li><a href="version8.html">8</a></li>
+  <li><a href="version9.html">9</a></li>
+</ul>
+</div>
+<hr>
+<h2>TryJOGL（OpenGLを用いてJavaで3次元グラフィックスをやってみよう）</h2>
+<p>Javaで3次元グラフィックスのプログラミングを行いましょう。針金細工のティーポット（Wire Teapot）をOpenGL（Open Graphics Library）を用いて描画するプログラムを作成します。以下が完成図（実行結果）になります。macOS上で、1枚のウィンドウを開き、その中に照光（ライティング）を施したティーポット（お茶を注ぐための急須）をワイヤーフレーム（針金細工）で描き出します。</p>
+<div class="belt">
+<h3><a name="Result">完成図</a>（実行結果）</h3>
+</div>
+<blockquote><img src="images/TryJOGLResult.png" width="514" height="536" alt="TryJOGLResult"><br>
+　　　　　視点 = [10 , 10 , 10]<br>
+　　　　注視点 = [0 , 0 , 0]<br>
+上方向ベクトル = [0 , 1 , 0]<br>
+　　　　視界角 = 15</blockquote>
+<div class="belt">
+<h3><a name="ProgrammingProcess">プログラミング過程</a></h3>
+</div>
+<p>このプログラムをどのような順番でどうやって作ってゆくのか、それをプログラミング過程（Programming Process）として示しながら、プログラミングの実際（実践の経過）を皆さんの前に開き表して（紡ぎ出して）みます。プログラミングを進めるのにあたって、ダウンロードやインストールなどに使用するディレクトリは以下のディレクトリだけです。他のディレクトリ（特にシステムに重要なディレクトリなど）を用いる（汚す）ことはありません。（ただし、<a href="../JavaSE/index-j.html">Java SE</a>と<a href="../ApacheAnt/index-j.html">Apache Ant</a>がインストールされていることが前提になります。）</p>
+<ul>
+  <li><code>~/AP/Java/TryJOGL/</code>　：<span style="color:#0000ff">ホームディレクトリ（ログインディレクトリ）の直下の「AP/Java/TryJOGL」というディレクトリ</span></li>
+</ul>
+<p>どうぞ、バージョン0からバージョン9までを、写経（長いお経を書き写しながら供養）をするように、後追い（真似）してくださると幸いです。一緒にJavaプログラミングの精進をいたしましょう。ここに示している「作ってゆく経過」が役に立つ（Javaプログラミングの初心者たちの福音になる）ことを願っております。</p>
+<ul>
+  <li><a href="version0.html">Version 0</a>：<span style="color:#ff0000">バージョンを追いながらプログラミングするための準備</span></li>
+  <li><a href="version1.html">Version 1</a>：<span style="color:#ff0000">まず中身のないウィンドウ（フレーム）を1枚開く</span></li>
+  <li><a href="version2.html">Version 2</a>：<span style="color:#ff0000">OpenGLのキャンバスをフレームの中身として入れる</span></li>
+  <li><a href="version3.html">Version 3</a>：<span style="color:#ff0000">OpenGLのイベントリスナーの枠組みを実装する</span></li>
+  <li><a href="version4.html">Version 4</a>：<span style="color:#ff0000">OpenGL起動時に初期化のために呼び出される「init(…)」を実装する</span></li>
+  <li><a href="version5.html">Version 5</a>：<span style="color:#ff0000">OpenGL表示領域が変更された際に呼び出される「reshape(…)」を実装する</span></li>
+  <li><a href="version6.html">Version 6</a>：<span style="color:#ff0000">OpenGL描画を行う際に呼び出される「display(…)」を実装する</span></li>
+  <li><a href="version7.html">Version 7</a>：<span style="color:#ff0000">ティーポットを描画する</span></li>
+  <li><a href="version8.html">Version 8</a>：<span style="color:#ff0000">照光（ライティング）を実装する</span></li>
+  <li><a href="version9.html">Version 9</a>：<span style="color:#ff0000">不要な標準出力をコメントアウトしてプログラムを完成させる</span></li>
+</ul>
+<p>このプログラミング過程で出来上がったJavaドキュメント（javadoc）とアプリケーションを示しておきます。</p>
+<blockquote><a href="JavaDoc/index.html"><img src="images/JavaDoc.png" width="702" height="420" alt="JavaDoc"></a></blockquote>
+<blockquote><a href="http://www.cc.kyoto-su.ac.jp/~atsushi/deployment/AP/Java/TryJOGL.app.tar.gz"><img src="images/TryJOGLApp.jpg" width="256" height="256" alt="TryJOGLApp"></a></blockquote>
+<blockquote>
+<pre>
+$ <span style="color:#ff0000">(cd ~/Downloads/ ; curl -O http://www.cc.kyoto-su.ac.jp/~atsushi/deployment/AP/Java/TryJOGL.app.tar.gz)</span> <span style="font-size: x-small; color:#00ff00"># まず、アーカイブファイルをダウンロード</span>
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 4186k  100 4186k    0     0  2499k      0  0:00:01  0:00:01 --:--:-- 2498k
+$ <span style="color:#ff0000">(cd ~/Downloads/ ; cat ./TryJOGL.app.tar.gz ; rm -f ./TryJOGL.app.tar.gz) | (cd ~/Desktop/ ; tar xvfz -)</span> <span style="font-size: x-small; color:#00ff00"># 次に、アーカイブファイルを展開して、デスクトップ上にアプリケーションを配置</span>
+x ./TryJOGL.app/
+x ./TryJOGL.app/Contents/
+x ./TryJOGL.app/Contents/MacOS/
+x ./TryJOGL.app/Contents/Resources/
+x ./TryJOGL.app/Contents/Info.plist
+x ./TryJOGL.app/Contents/PkgInfo
+x ./TryJOGL.app/Contents/Resources/JavaApp.icns
+x ./TryJOGL.app/Contents/Resources/applet.rsrc
+x ./TryJOGL.app/Contents/Resources/description.rtfd/
+x ./TryJOGL.app/Contents/Resources/Java/
+x ./TryJOGL.app/Contents/Resources/Scripts/
+x ./TryJOGL.app/Contents/Resources/applet.icns
+x ./TryJOGL.app/Contents/Resources/Scripts/main.scpt
+x ./TryJOGL.app/Contents/Resources/Java/tryjogl-natives-macosx-universal.jar
+x ./TryJOGL.app/Contents/Resources/Java/natives/
+x ./TryJOGL.app/Contents/Resources/Java/tryjogl.jar
+x ./TryJOGL.app/Contents/Resources/Java/natives/macosx-universal/
+x ./TryJOGL.app/Contents/Resources/Java/natives/macosx-universal/libnativewindow_awt.dylib
+x ./TryJOGL.app/Contents/Resources/Java/natives/macosx-universal/libgluegen_rt.dylib
+x ./TryJOGL.app/Contents/Resources/Java/natives/macosx-universal/libnativewindow_macosx.dylib
+x ./TryJOGL.app/Contents/Resources/Java/natives/macosx-universal/libjogl_mobile.dylib
+x ./TryJOGL.app/Contents/Resources/Java/natives/macosx-universal/libnewt_head.dylib
+x ./TryJOGL.app/Contents/Resources/Java/natives/macosx-universal/libjogl_desktop.dylib
+x ./TryJOGL.app/Contents/Resources/description.rtfd/TXT.rtf
+x ./TryJOGL.app/Contents/MacOS/applet
+$ <span style="color:#ff0000">(cd ~/Desktop/ ; xattr -cr ./TryJOGL.app)</span> <span style="font-size: x-small; color:#00ff00"># そして、アプリケーションの拡張属性を再帰的にクリア</span>
+$ <span style="color:#ff0000">(cd ~/Desktop/ ; sudo spctl --master-disable ; open ./TryJOGL.app ; sudo spctl --master-enable)</span> <span style="font-size: x-small; color:#00ff00"># openコマンドで起動、ただし、Gatekeeperを開け閉めしながら、または、TryJOGL.appをダブルクリック</span>
+Password: <span style="font-size: x-small; color:#00ff00"># 管理者のパスワードを入力、Gatekeeperの開閉のために</span>
+$ 
+</pre>
+</blockquote>
+<hr>
+<p><a href="../Lectures/index-j.html#TryJOGL">←</a> <a href="index-j.html">↑</a> <a href="version0.html">→</a></p>
+<hr>
+<div class="right-small">Updated: 2020/01/04 (Created: 2010/11/11) <a href="http://www.kyoto-su.ac.jp/"><img class="borderless" src="http://www.cc.kyoto-su.ac.jp/~atsushi/thumbnails/KSU.jpg" width="115" height="30" alt="KSU"></a> <a href="http://www.cc.kyoto-su.ac.jp/~atsushi/"><img class="borderless" src="http://www.cc.kyoto-su.ac.jp/~atsushi/thumbnails/AokiHanko.jpg" width="32" height="32" alt="AokiHanko"></a></div>
+</body>
+</html>

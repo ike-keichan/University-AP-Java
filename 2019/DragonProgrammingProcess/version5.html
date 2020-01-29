@@ -1,0 +1,1684 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="keywords" content="Aoki,Atsushi,Smalltalk,Smalltalker,Program,Programmer,Object,Oriented,Programming">
+<meta name="description" content="青木淳（あおきあつし）のホームページ">
+<meta name="author" content="AOKI Atsushi">
+<link rev="made" href="mailto:atsushi@cc.kyoto-su.ac.jp">
+<link rel="index" href="index-j.html">
+<link rel="shortcut icon" href="http://www.cc.kyoto-su.ac.jp/~atsushi/icons/aoki.ico">
+<style type="text/css">
+<!--
+body {
+  background-color : #ffffff;
+  margin : 20px;
+  padding : 10px;
+  font-family : serif;
+  font-size : 10pt;
+}
+a {
+  text-decoration : underline;
+  color : #000000;
+}
+a:link {
+  background-color : #ffddbb;
+}
+a:visited {
+  background-color : #ccffcc;
+}
+a:hover {
+  background-color : #dddddd;
+}
+a:active {
+  background-color : #dddddd;
+}
+div.belt {
+  background-color : #eeeeee;
+  padding : 0px 4px;
+}
+div.belt-yellow {
+  background-color : #ffffcc;
+  padding : 0px 4px;
+}
+div.belt-blue {
+  background-color : #ddeeff;
+  padding : 0px 4px;
+}
+div.belt-pink {
+  background-color : #ffeedd;
+  padding : 0px 4px;
+}
+div.right-small {
+  text-align : right;
+  font-size : 8pt;
+}
+img.border {
+  border-width : 1px;
+  border-color : #000000;
+  vertical-align : middle;
+}
+img.borderless {
+  border-width : 0px;
+  vertical-align : middle;
+}
+p.belt {
+  background-color : #ffeedd;
+  padding : 4px 8px;
+}
+p.belt-blue {
+  background-color : #ddeeff;
+  padding : 4px 8px;
+}
+pre.belt {
+  background-color : #ddeeff;
+  padding : 4px 8px;
+}
+pre.belt-yellow {
+  background-color : #ffffcc;
+  padding : 4px 8px;
+}
+table {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  font-family : serif;
+  font-size : 10pt;
+}
+table.profile {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  font-family : serif;
+  font-size : 10pt;
+  margin-top : 8px;
+  margin-left : 8px;
+  margin-right : 8px;
+  margin-bottom : 8px;
+}
+table.belt {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  background-color : #ffeedd;
+  padding : 0px 0px;
+  width : 100%;
+}
+table.content {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 2px 4px;
+}
+table.font-fixed {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 2px 4px;
+  font-family : monospace;
+}
+table.nest {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 0px 0px;
+}
+td {
+  padding : 0px 0px;
+  vertical-align : middle;
+}
+td.center {
+  text-align : center;
+}
+td.center-half {
+  text-align : center;
+  width : 50%;
+  font-size : 8pt;
+}
+td.center-small {
+  text-align : center;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.center-small-nopadding {
+  text-align : center;
+  font-size : 8pt;
+  padding : 0px 0px;
+}
+td.center-white {
+  text-align : center;
+  background-color : #ffffff;
+}
+td.center-small-white {
+  text-align : center;
+  font-size : 8pt;
+  background-color : #ffffff;
+}
+td.center-border1 {
+  text-align : center;
+  vertical-align : middle;
+  empty-cells : show;
+  border-style : solid;
+  border-width : 1px;
+  border-color : #ffc080;
+  width : 22px;
+  height : 22px;
+}
+td.left-small {
+  text-align : left;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.left-small-white {
+  text-align : left;
+  font-size : 8pt;
+  padding : 0px 4px;
+  background-color : #ffffff;
+}
+td.right-small {
+  text-align : right;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.right-small-white {
+  text-align : right;
+  font-size : 8pt;
+  padding : 0px 4px;
+  background-color : #ffffff;
+}
+th {
+  padding : 0px 0px;
+  vertical-align : middle;
+}
+#menu {
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+  height: 32px;
+}
+#menu ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-align: center;
+  clear: both;
+}
+#menu li {
+  margin: 0px 5px 0px 0px;
+  padding: 0px;
+  float: left;
+}
+#menu a {
+  display: block;
+  padding: 2px 4px;
+  text-decoration: none;
+  margin: 0px;
+  font-weight: bold;
+  background: #FFFFFF;
+  color: #333333;
+  border: 1px solid #666666;
+}
+#menu a:hover {
+  display: block;
+  padding: 2px 4px;
+  border-bottom: 1px solid #000000;
+  text-decoration: none;
+  background: #FFCC66;
+}
+#menu .current {
+  background-color: #F45F57;
+  font-weight: bold;
+  color: #FFFFFF;
+  border: 1px solid #333333;
+}
+-->
+</style>
+<!-- SyntaxHighlighter BEGIN -->
+<link href="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/styles/shCore.css" rel="stylesheet" type="text/css">
+<link href="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/styles/shThemeEclipse.css" rel="stylesheet" type="text/css">
+<script src="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/scripts/shCore.js" type="text/javascript"></script>
+<script src="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/scripts/shBrushJava.js" type="text/javascript"></script>
+<script src="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/scripts/shBrushPlain.js" type="text/javascript"></script>
+<script src="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/scripts/shBrushPython.js" type="text/javascript"></script>
+<script type="text/javascript"> 
+<!--
+SyntaxHighlighter.config.bloggerMode = true;
+SyntaxHighlighter.config.clipboardSwf = 'http://alexgorbatchev.com/pub/sh/current/scripts/clipboard.swf';
+SyntaxHighlighter.all();
+SyntaxHighlighter.defaults['auto-links'] = false;
+-->
+</script>
+<!-- SyntaxHighlighter END -->
+<title>Version 5：JOGL（OpenGL）のためのMVC（モデル・ビュー・コントローラ）を導入する</title>
+</head>
+<body>
+<div id="menu">
+<ul>
+  <li><a href="../Lectures/index-j.html#DragonProgrammingProcess">Javaプログラム集</a></li>
+  <li><a href="index-j.html">ドラゴンのプログラミング過程とリファクタリング過程</a></li>
+  <li><a href="version0.html">0</a></li>
+  <li><a href="version1.html">1</a></li>
+  <li><a href="version2.html">2</a></li>
+  <li><a href="version3.html">3</a></li>
+  <li><a href="version4.html">4</a></li>
+  <li><a href="version5.html" class="current">5</a></li>
+  <li><a href="version6.html">6</a></li>
+  <li><a href="version7.html">7</a></li>
+  <li><a href="version8.html">8</a></li>
+  <li><a href="version9.html">9</a></li>
+</ul>
+</div>
+<hr>
+<!--********************************************************************************************************************-->
+<h2>Version 5：JOGL（OpenGL）のためのMVC（モデル・ビュー・コントローラ）を導入する</h2>
+<p>描画オブジェクト階層（OpenGLObjectインヘリタンス）を導入し、プロジェクションオブジェクト（OpenGLProjection）を導入して、リファクタリングを続けてきました。さらに続けましょう。今回のバージョンでは、デザインパターンとして有名なオブザーバーのパターンであるMVC（モデル・ビュー・コントローラ）を導入します。それもJOGL（OpenGL）のためのMVCです。</p>
+<blockquote><a href="images/version_4_1.jpg"><img src="thumbnails/version_4_1.jpg" width="539" height="425" alt="version_4_1"></a></blockquote>
+<p>そして、JOGL（OpenGL）のイベントリスナー（<a href="http://download.java.net/media/jogl/jogl-2.x-docs/javax/media/opengl/GLEventListener.html">GLEventListener</a>）をビューに実装します。また、ウィンドウリスナー（<a href="http://docs.oracle.com/javase/jp/8/api/java/awt/event/WindowListener.html">WindowListener</a>）をコントローラに実装します。本章で実装してゆくメソッド「display(…)・dispose(…)・init(…)・reshape(…)」は、いずれも描画（表示）に関わりますから、ビューが担うのが適当です。一方、次々章で実装してゆく幾つかのさらなるリスナーたちは、マウス・キーボードなどに関わります。ユーザから指示（入力）を受け付けて、GUI全体を制御するものになります。したがって、コントローラが担うのが適当になります。</p>
+<p>モデルであるOpenGLModelがdisplayObjectに描画オブジェクトのサブクラスのインスタンスを1つ保持する構造です。そして、プロジェクションもモデルが保持しています。以下の差分（変更箇所：編集部分）やクラス階層（インヘリタンス）を参考にしながら、その後に示すソースコード（Version 5）と同じになるように、プログラムを編集・加筆してください。</p>
+<!--********************************************************************************************************************-->
+<div class="belt">
+<h3><a name="Differences">差分</a>（変更箇所：編集部分）</h3>
+</div>
+<!--********************************************************************************************************************-->
+<blockquote>
+<div class="belt-pink">
+【前バージョンからの差分＝変更箇所】
+</div>
+<!-- python -c 'print(",".join([str(x) for x in range(0,0)]))' -->
+<pre class="brush: plain; toolbar: false; first-line: 1; highlight: [];">
+【ファイルやディレクトリの増減】
+========================================
+Compare:
+./Version4
+     1: dragon/Dragon.java
+     2: dragon/Example.java
+     3: mvc4jogl/OpenGLCompound.java
+     4: mvc4jogl/OpenGLObject.java
+     5: mvc4jogl/OpenGLPolygon.java
+     6: mvc4jogl/OpenGLProjection.java
+     7: mvc4jogl/OpenGLTriangle.java
+     8: mvc4jogl/Teapot.java
+with:
+./Version5
+     1: dragon/Dragon.java
+     2: dragon/Example.java
+     3: mvc4jogl/OpenGLCompound.java
+     4: mvc4jogl/OpenGLController.java
+     5: mvc4jogl/OpenGLModel.java
+     6: mvc4jogl/OpenGLObject.java
+     7: mvc4jogl/OpenGLPolygon.java
+     8: mvc4jogl/OpenGLProjection.java
+     9: mvc4jogl/OpenGLTriangle.java
+    10: mvc4jogl/OpenGLView.java
+    11: mvc4jogl/Teapot.java
+========================================
+Added (or Removed) files:
+3a4,5
+&gt; mvc4jogl/OpenGLController.java
+&gt; mvc4jogl/OpenGLModel.java
+7a10
+&gt; mvc4jogl/OpenGLView.java
+========================================
+【それぞれのファイルの変更】
+----------------------------------------
+Compare:
+./Version4/dragon/Dragon.java
+with:
+./Version5/dragon/Dragon.java
+----------------------------------------
+Result:
+6a7
+&gt; import mvc4jogl.OpenGLModel;
+97,100c98,101
+&lt;         Example anExample = new Example(aDragon);
+&lt;         anExample.axesScale(1.0d);
+&lt;         anExample.windowTitle("Dragon");
+&lt;         OpenGLProjection aProjection = anExample.projection();
+---
+&gt;         OpenGLModel aModel = new OpenGLModel(aDragon);
+&gt;         aModel.axesScale(1.0d);
+&gt;         aModel.windowTitle("Dragon");
+&gt;         OpenGLProjection aProjection = aModel.projection();
+105c106
+&lt;         anExample.open(x, y);
+---
+&gt;         aModel.open(x, y);
+----------------------------------------
+Compare:
+./Version4/dragon/Example.java
+with:
+./Version5/dragon/Example.java
+----------------------------------------
+Result:
+3,22d2
+&lt; import com.jogamp.opengl.GL;
+&lt; import com.jogamp.opengl.GL2;
+&lt; import com.jogamp.opengl.glu.GLU;
+&lt; import com.jogamp.opengl.util.gl2.GLUT;
+&lt; 
+&lt; import com.jogamp.opengl.awt.GLCanvas;
+&lt; import com.jogamp.opengl.GLAutoDrawable;
+&lt; import com.jogamp.opengl.GLCapabilities;
+&lt; import com.jogamp.opengl.GLEventListener;
+&lt; import com.jogamp.opengl.GLProfile;
+&lt; 
+&lt; import javax.swing.JFrame;
+&lt; import java.nio.FloatBuffer;
+&lt; 
+&lt; import java.awt.event.WindowAdapter;
+&lt; import java.awt.event.WindowEvent;
+&lt; 
+&lt; import mvc4jogl.OpenGLObject;
+&lt; import mvc4jogl.OpenGLProjection;
+&lt; 
+23a4
+&gt;  * ドラゴンをOpenGLでレンダリング（描画）するプログラムである。
+25a7
+&gt;  * オブザーバ・デザインパターン（MVC: Model-View-Controller）を用いた典型的（模範的）なプログラムである。
+27c9
+&lt; public class Example extends WindowAdapter implements GLEventListener
+---
+&gt; public class Example extends Object
+30,361c12
+&lt;      * GLオブジェクトを記憶するフィールドである。
+&lt;      */
+&lt;     protected GL2 gl;
+&lt; 
+&lt;     /**
+&lt;      * GLユーティリティを記憶するフィールドである。
+&lt;      */
+&lt;     protected GLU glu;
+&lt; 
+&lt;     /**
+&lt;      * GLユーティリティツールキットを記憶するフィールドである。
+&lt;      */
+&lt;     protected GLUT glut;
+&lt; 
+&lt;     /**
+&lt;      * ビューの幅を記憶するフィールドである。
+&lt;      */
+&lt;     protected int width;
+&lt; 
+&lt;     /**
+&lt;      * ビューの高さを記憶するフィールドである。
+&lt;      */
+&lt;     protected int height;
+&lt; 
+&lt;     /**
+&lt;      * 描画オブジェクトを記憶するフィールドである。
+&lt;      */
+&lt;     protected OpenGLObject displayObject;
+&lt; 
+&lt;     /**
+&lt;      * プロジェクションを記憶するフィールドである。
+&lt;      */
+&lt;     protected OpenGLProjection projection;
+&lt; 
+&lt;     /**
+&lt;      * XYZ軸のスケール（大きさ）を記憶するフィールドである。
+&lt;      */
+&lt;     protected double axesScale;
+&lt; 
+&lt;     /**
+&lt;      * ウィンドウタイトルを記憶するフィールドである。
+&lt;      */
+&lt;     protected String windowTitle;
+&lt; 
+&lt;     /**
+&lt;      * Exampleのコンストラクタである。
+&lt;      */
+&lt;     public Example(OpenGLObject aBody)
+&lt;     {
+&lt;         // System.out.println("Example");
+&lt; 
+&lt;         this.displayObject = aBody;
+&lt;         this.projection = new OpenGLProjection();
+&lt;         this.axesScale = 1.0;
+&lt;         this.windowTitle = "Untitled";
+&lt; 
+&lt;         return;
+&lt;     }
+&lt; 
+&lt;     /**
+&lt;      * プロジェクションを応答する。
+&lt;      * @return プロジェクション
+&lt;      */
+&lt;     public OpenGLProjection projection()
+&lt;     {
+&lt;         return this.projection;
+&lt;     }
+&lt; 
+&lt;     /**
+&lt;      * XYZ軸の大きさを応答する。
+&lt;      * @return XYZ軸の大きさ
+&lt;      */
+&lt;     public double axesScale()
+&lt;     {
+&lt;         return this.axesScale;
+&lt;     }
+&lt; 
+&lt;     /**
+&lt;      * XYZ軸の大きさを設定する。
+&lt;      * @param scale XYZ軸の大きさ
+&lt;      */
+&lt;     public void axesScale(double scale)
+&lt;     {
+&lt;          this.axesScale = scale;
+&lt; 
+&lt;         return;
+&lt;     }
+&lt; 
+&lt;     /**
+&lt;      * ウィンドウタイトルを応答する。
+&lt;      * @return ウィンドウタイトル
+&lt;      */
+&lt;     public String windowTitle()
+&lt;     {
+&lt;         return this.windowTitle;
+&lt;     }
+&lt; 
+&lt;     /**
+&lt;      * ウィンドウタイトルを設定する。
+&lt;      * @param title ウィンドウタイトル
+&lt;      */
+&lt;     public void windowTitle(String title)
+&lt;     {
+&lt;         this.windowTitle = title;
+&lt; 
+&lt;         return;
+&lt;     }
+&lt; 
+&lt;     /**
+&lt;      * OpenGL起動時に初期化のために呼び出される。
+&lt;      * @param aDrawable OpenGLの描画ダーゲット
+&lt;      */
+&lt;     public void init(GLAutoDrawable aDrawable)
+&lt;     {
+&lt;         // System.out.println("init");
+&lt; 
+&lt;         // グラフィックライブラリ（gl）を獲得し、
+&lt;         // グラフィックライブラリユーティリティ（glu）と
+&lt;         // グラフィックライブラリユーティリティツールキット（glut）を生成する。
+&lt;         this.gl = aDrawable.getGL().getGL2();
+&lt;         this.glu = new GLU();
+&lt;         this.glut = new GLUT();
+&lt; 
+&lt;         // 材質の有効化
+&lt;         // 陰線隠面処理の有効化
+&lt;         // 片面表示機能の無効化
+&lt;         // 法線ベクトルの有効化
+&lt;         this.gl.glEnable(GL2.GL_COLOR_MATERIAL);
+&lt;         this.gl.glEnable(GL2.GL_DEPTH_TEST);
+&lt;         this.gl.glDisable(GL2.GL_CULL_FACE);
+&lt;         this.gl.glEnable(GL2.GL_NORMALIZE);
+&lt; 
+&lt;         return;
+&lt;     }
+&lt; 
+&lt;     /**
+&lt;      * OpenGL描画を行う際に呼び出される。
+&lt;      * @param aDrawable OpenGLの描画ダーゲット
+&lt;      */
+&lt;     public void display(GLAutoDrawable aDrawable)
+&lt;     {
+&lt;         // System.out.println("display");
+&lt; 
+&lt;         // 視界（視点・注視点・上方向ベクトル・視界角・近・遠）を整（設）える。
+&lt;         double[] eyePoint = this.projection.eyePoint();
+&lt;         double[] sightPoint = this.projection.sightPoint();
+&lt;         double[] upVector = this.projection.upVector();
+&lt;         double fovy = this.projection.fovy();
+&lt;         double near = this.projection.near();
+&lt;         double far = this.projection.far();
+&lt; 
+&lt;         // キャンバス（ウィンドウ）の大きさからアスペクト比を求める。
+&lt;         double aspect = (double)width / (double)height;
+&lt; 
+&lt;         // プロジェクション（遠近法）を設定する。
+&lt;         this.gl.glMatrixMode(GL2.GL_PROJECTION);
+&lt;         this.gl.glLoadIdentity();
+&lt;         this.glu.gluPerspective(fovy, aspect, near, far);
+&lt; 
+&lt;         // 視界を設定する。
+&lt;         this.gl.glMatrixMode(GL2.GL_MODELVIEW);
+&lt;         this.gl.glLoadIdentity();
+&lt;         this.glu.gluLookAt(
+&lt;                            eyePoint[0], eyePoint[1], eyePoint[2],
+&lt;                            sightPoint[0], sightPoint[1], sightPoint[2],
+&lt;                            upVector[0], upVector[1], upVector[2]);
+&lt; 
+&lt;         // キャンバスをクリアする。
+&lt;         this.gl.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+&lt;         this.gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+&lt; 
+&lt;         // 照明を設定する。
+&lt;         this.gl.glEnable(GL2.GL_LIGHTING);
+&lt;         this.gl.glLightModelfv(GL2.GL_LIGHT_MODEL_AMBIENT, OpenGLObject.asFloatBuffer(new float[] { 0.5f, 0.5f, 0.5f, 1.0f }));
+&lt;         this.gl.glLightModelf(GL2.GL_LIGHT_MODEL_LOCAL_VIEWER, 0.0f);
+&lt;         this.gl.glLightModelf(GL2.GL_LIGHT_MODEL_TWO_SIDE, 1.0f);
+&lt;         this.gl.glEnable(GL2.GL_LIGHT0);
+&lt;         this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_POSITION, OpenGLObject.asFloatBuffer(new float[] { 0.0f, 0.0f, 1.0f, 0.0f }));
+&lt;         this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_SPOT_DIRECTION, OpenGLObject.asFloatBuffer(new float[] { 0.0f, 0.0f, -1.0f }));
+&lt;         this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_SPOT_CUTOFF, OpenGLObject.asFloatBuffer(new float[] { 90.0f }));
+&lt;         this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, OpenGLObject.asFloatBuffer(new float[] { 0.5f, 0.5f, 0.5f, 1.0f }));
+&lt;         this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_SPECULAR, OpenGLObject.asFloatBuffer(new float[] { 0.5f, 0.5f, 0.5f, 1.0f }));
+&lt;         this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_LINEAR_ATTENUATION, OpenGLObject.asFloatBuffer(new float[] { 0.0f }));
+&lt;         this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_QUADRATIC_ATTENUATION, OpenGLObject.asFloatBuffer(new float[] { 0.0f }));
+&lt;         this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_CONSTANT_ATTENUATION, OpenGLObject.asFloatBuffer(new float[] { 1.0f }));
+&lt; 
+&lt;         // 世界座標系（XYZ軸）を描画する。
+&lt;         this.displayAxes();
+&lt; 
+&lt;         // 描画オブジェクトをレンダリング（描画）する。
+&lt;         this.displayObject.rendering(this.gl, this.glu, this.glut);
+&lt; 
+&lt;         return;
+&lt;     }
+&lt; 
+&lt;     /**
+&lt;      * XYZ軸（世界座標系）を描画する。
+&lt;      */
+&lt;     public void displayAxes()
+&lt;     {
+&lt;         double scale = this.axesScale();
+&lt; 
+&lt;         this.gl.glBegin(GL2.GL_LINES);
+&lt; 
+&lt;         // X軸（赤）
+&lt;         this.gl.glColor4d(1.0d, 0.0d, 0.0d, 1.0d);
+&lt;         this.gl.glVertex3d(-1.000d * scale, 0.0d, 0.0d);
+&lt;         this.gl.glVertex3d( 1.618d * scale, 0.0d, 0.0d);
+&lt; 
+&lt;         // Y軸（緑）
+&lt;         this.gl.glColor4d(0.0d, 1.0d, 0.0d, 1.0d);
+&lt;         this.gl.glVertex3d(0.0d, -1.000d * scale, 0.0d);
+&lt;         this.gl.glVertex3d(0.0d,  1.618d * scale, 0.0d);
+&lt; 
+&lt;         // Z軸（青）
+&lt;         this.gl.glColor4d(0.0d, 0.0d, 1.0d, 1.0d);
+&lt;         this.gl.glVertex3d(0.0d, 0.0d, -1.000d * scale);
+&lt;         this.gl.glVertex3d(0.0d, 0.0d,  1.618d * scale);
+&lt; 
+&lt;         this.gl.glEnd();
+&lt; 
+&lt;         return;
+&lt;     }
+&lt; 
+&lt;     /**
+&lt;      * OpenGL表示モードや表示デバイスが変更された際に呼び出される。
+&lt;      * @param aDrawable OpenGLの描画ダーゲット
+&lt;      * @param modeChanged 表示モードが変更されたか否か
+&lt;      * @param deviceChanged 表示デバイスが変更されたか否か
+&lt;      */
+&lt;     public void displayChanged(GLAutoDrawable aDrawable, boolean modeChanged, boolean deviceChanged)
+&lt;     {
+&lt;         // System.out.println("displayChanged");
+&lt; 
+&lt;         return;
+&lt;     }
+&lt; 
+&lt;     /**
+&lt;      * OpenGLの資源が破棄された際に呼び出される。
+&lt;      * @param aDrawable OpenGLの描画ダーゲット
+&lt;      */
+&lt;     public void dispose(GLAutoDrawable aDrawable)
+&lt;     {
+&lt;         // System.out.println("dispose");
+&lt; 
+&lt;         return;
+&lt;     }
+&lt; 
+&lt;     /**
+&lt;      * OpenGL表示領域が変更された際に呼び出される。
+&lt;      * @param aDrawable OpenGLの描画ダーゲット
+&lt;      * @param x 表示領域のX座標
+&lt;      * @param y 表示領域のY座標
+&lt;      * @param w 表示領域の幅
+&lt;      * @param h 表示領域の高さ
+&lt;      */
+&lt;     public void reshape(GLAutoDrawable aDrawable, int x, int y, int w, int h)
+&lt;     {
+&lt;         // System.out.println("reshape");
+&lt; 
+&lt;         this.width = w;
+&lt;         this.height = h;
+&lt; 
+&lt;         this.gl.glViewport(0, 0, width, height);
+&lt; 
+&lt;         return;
+&lt;     }
+&lt; 
+&lt; 
+&lt;     /**
+&lt;      * OpenGLのウィンドウを開く。
+&lt;      */
+&lt;     public void open()
+&lt;     {
+&lt;         this.open(-1, -1);
+&lt; 
+&lt;         return;
+&lt;     }
+&lt; 
+&lt;     /**
+&lt;      * OpenGLのウィンドウを指定された場所(x, y)に開く。
+&lt;      * @param x ウィンドウを開く場所のx座標
+&lt;      * @param y ウィンドウを開く場所のy座標
+&lt;      */
+&lt;     public void open(int x, int y)
+&lt;     {
+&lt;         // OpenGL描画のためのキャンバスを生成する。
+&lt;         GLProfile profile = GLProfile.get(GLProfile.GL2);
+&lt;         GLCapabilities capabilities = new GLCapabilities(profile);
+&lt;         capabilities.setDoubleBuffered(true);
+&lt;         GLCanvas aCanvas = new GLCanvas(capabilities);
+&lt;         aCanvas.addGLEventListener(this);
+&lt;         aCanvas.setFocusable(true);
+&lt; 
+&lt;         // フレームを生成し、上記のキャンバスを乗せて、ウィンドウとして開く。
+&lt;         JFrame aFrame = new JFrame(this.windowTitle());
+&lt;         aFrame.add(aCanvas);
+&lt;         aFrame.addNotify();
+&lt;         int titleBarHeight = aFrame.getInsets().top;
+&lt;         aFrame.setSize(400, 400 + titleBarHeight);
+&lt;         if (x &lt; 0 &amp;&amp; y &lt; 0)
+&lt;         {
+&lt;             aFrame.setLocationRelativeTo(null);
+&lt;         }
+&lt;         else
+&lt;         {
+&lt;             aFrame.setLocation(x, y);
+&lt;         }
+&lt;         // aFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+&lt;         aFrame.addWindowListener(this);
+&lt;         aFrame.setFocusable(false);
+&lt;         aFrame.setVisible(true);
+&lt; 
+&lt;         return;
+&lt;     }
+&lt; 
+&lt;     /**
+&lt;      * ウィンドウを閉じようとした時に呼び出される。
+&lt;      * @param aWindowEvent ウィンドウイベント
+&lt;      */
+&lt;     public void windowClosing(WindowEvent aWindowEvent)
+&lt;     {
+&lt;         // System.out.println(aWindowEvent.paramString());
+&lt; 
+&lt;         // 終了する。
+&lt;         System.exit(0);
+&lt; 
+&lt;         return;
+&lt;     }
+&lt; 
+&lt;     /**
+&lt;      * ドラゴンを描くOpenGLのウィンドウを開く。
+---
+&gt;      * OpenGLオブジェクトからOpenGLモデルを生成してウィンドウを開く。
+366c17,18
+&lt;         // System.out.println("main");
+---
+&gt;         int x = 100;
+&gt;         int y = 100;
+368c20,21
+&lt;         Dragon.open(100, 100);
+---
+&gt;         // ドラゴンを生成してウィンドウを開く。
+&gt;         Dragon.open(x += 25, y += 25);
+----------------------------------------
+Compare:
+./Version4/mvc4jogl/OpenGLCompound.java
+with:
+./Version5/mvc4jogl/OpenGLCompound.java
+----------------------------------------
+Result:
+----------------------------------------
+Compare:
+./Version4/mvc4jogl/OpenGLObject.java
+with:
+./Version5/mvc4jogl/OpenGLObject.java
+----------------------------------------
+Result:
+----------------------------------------
+Compare:
+./Version4/mvc4jogl/OpenGLPolygon.java
+with:
+./Version5/mvc4jogl/OpenGLPolygon.java
+----------------------------------------
+Result:
+----------------------------------------
+Compare:
+./Version4/mvc4jogl/OpenGLProjection.java
+with:
+./Version5/mvc4jogl/OpenGLProjection.java
+----------------------------------------
+Result:
+----------------------------------------
+Compare:
+./Version4/mvc4jogl/OpenGLTriangle.java
+with:
+./Version5/mvc4jogl/OpenGLTriangle.java
+----------------------------------------
+Result:
+----------------------------------------
+Compare:
+./Version4/mvc4jogl/Teapot.java
+with:
+./Version5/mvc4jogl/Teapot.java
+----------------------------------------
+Result:
+----------------------------------------
+</pre>
+</blockquote>
+<!--********************************************************************************************************************-->
+<div class="belt">
+<h3><a name="Inheritance">クラス階層</a>（インヘリタンス）</h3>
+</div>
+<ul style="list-style-type:circle;">
+  <li>java.lang.Object
+    <ul style="list-style-type:circle;">
+      <li>dragon.<a href="#dragon_Example" title="dragon_Example">Example</a></li>
+      <li>mvc4jogl.<a href="#mvc4jogl_OpenGLController" title="mvc4jogl_OpenGLController">OpenGLController</a> (implements java.awt.event.WindowListener)</li>
+      <li>mvc4jogl.<a href="#mvc4jogl_OpenGLModel" title="mvc4jogl_OpenGLModel">OpenGLModel</a></li>
+      <li>mvc4jogl.<a href="#mvc4jogl_OpenGLObject" title="mvc4jogl_OpenGLObject">OpenGLObject</a>
+        <ul style="list-style-type:circle;">
+          <li>mvc4jogl.<a href="#mvc4jogl_OpenGLCompound" title="mvc4jogl_OpenGLCompound">OpenGLCompound</a>
+            <ul style="list-style-type:circle;">
+              <li>dragon.<a href="#dragon_Dragon" title="dragon_Dragon">Dragon</a></li>
+            </ul>
+          </li>
+          <li>mvc4jogl.<a href="#mvc4jogl_OpenGLPolygon" title="mvc4jogl_OpenGLPolygon">OpenGLPolygon</a></li>
+          <li>mvc4jogl.<a href="#mvc4jogl_OpenGLTriangle" title="mvc4jogl_OpenGLTriangle">OpenGLTriangle</a></li>
+          <li>mvc4jogl.<a href="#mvc4jogl_Teapot" title="mvc4jogl_Teapot">Teapot</a></li>
+        </ul>
+      </li>
+      <li>mvc4jogl.<a href="#mvc4jogl_OpenGLProjection" title="mvc4jogl_OpenGLProjection">OpenGLProjection</a></li>
+      <li>mvc4jogl.<a href="#mvc4jogl_OpenGLView" title="mvc4jogl_OpenGLView">OpenGLView</a> (implements com.jogamp.opengl.GLEventListener)</li>
+    </ul>
+  </li>
+</ul>
+<!--********************************************************************************************************************-->
+<div class="belt">
+<h3><a name="SourceCode">ソースコード</a>（Version 5）</h3>
+</div>
+<!--********************************************************************************************************************-->
+<blockquote>
+<div class="belt-blue">
+<h4><a name="dragon_Dragon">dragon.Dragon</a></h4>
+</div>
+<!-- python -c 'print(",".join([str(x) for x in range(0,0)]))' -->
+<pre class="brush: java; toolbar: false; first-line: 1; highlight: [];">
+package dragon;
+
+import java.util.Iterator;
+import java.util.List;
+
+import mvc4jogl.OpenGLCompound;
+import mvc4jogl.OpenGLModel;
+import mvc4jogl.OpenGLObject;
+import mvc4jogl.OpenGLProjection;
+import mvc4jogl.OpenGLTriangle;
+
+import utility.StringUtility;
+
+/**
+ * ドラゴンをレンダリング（描画）する。
+ * XYZ軸に加えてドラゴンを描画する。
+ * 視界（視点・注視点・上方向ベクトル・視界角・近・遠）もドラゴンが応答する。
+ */
+public class Dragon extends OpenGLCompound
+{
+    /**
+     * ドラゴンのコンストラクタである。
+     * &lt;a href="http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/VisualWorks/Dragon/dragon.txt"&gt;dragon.txt&lt;/a&gt;からデータを読み取って三角形群を生成する。
+     */
+    public Dragon()
+    {
+        // System.out.println("Dragon");
+
+        String urlString = "http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/VisualWorks/Dragon/dragon.txt";
+        List&lt;String&gt; aCollection = StringUtility.readTextFromURL(urlString);
+        int numberOfVertexes = 0;
+        int numberOfTriangles = 0;
+        Iterator&lt;String&gt; anIterator = aCollection.iterator();
+        while (anIterator.hasNext())
+        {
+            String aString = anIterator.next();
+            List&lt;String&gt; aList = StringUtility.splitString(aString, " \t\n\r");
+            if (aList.size() == 0) { continue; }
+            // System.out.println(aList);
+            String firstString = aList.get(0);
+            if (firstString.compareTo("number_of_vertexes") == 0)
+            {
+                numberOfVertexes = Integer.valueOf(aList.get(1));
+                // System.out.println(numberOfVertexes);
+            }
+            if (firstString.compareTo("number_of_triangles") == 0)
+            {
+                numberOfTriangles = Integer.valueOf(aList.get(1));
+                // System.out.println(numberOfTriangles);
+            }
+            if (firstString.compareTo("end_header") == 0)
+            {
+                double[][] vertexArray = new double[numberOfVertexes][3];
+                for (int n = 0; n &lt; numberOfVertexes; n++)
+                {
+                    aString = anIterator.next();
+                    aList = StringUtility.splitString(aString, " \t\n\r");
+                    double x = Double.valueOf(aList.get(0));
+                    double y = Double.valueOf(aList.get(1));
+                    double z = Double.valueOf(aList.get(2));
+                    vertexArray[n][0] = x;
+                    vertexArray[n][1] = y;
+                    vertexArray[n][2] = z;
+                    // System.out.printf("%d: %g, %g, %g\n", n, vertexArray[n][0], vertexArray[n][1], vertexArray[n][2]);
+                }
+                for (int n = 0; n &lt; numberOfTriangles; n++)
+                {
+                    aString = anIterator.next();
+                    aList = StringUtility.splitString(aString, " \t\n\r");
+                    int i = Integer.valueOf(aList.get(0)) - 1;
+                    int j = Integer.valueOf(aList.get(1)) - 1;
+                    int k = Integer.valueOf(aList.get(2)) - 1;
+                    double[] vertex1 = vertexArray[i];
+                    double[] vertex2 = vertexArray[j];
+                    double[] vertex3 = vertexArray[k];
+                    OpenGLTriangle aTriangle = new OpenGLTriangle(vertex1, vertex2, vertex3);
+                    aTriangle.rgb(0.5d, 0.5d, 1.0d);
+                    this.add(aTriangle);
+                    // System.out.printf("%d: %s\n", n, aTriangle);
+                }
+            }
+        }
+
+        return;
+    }
+
+    /**
+     * ドラゴンを生成してウィンドウを開く。
+     * @param x ウィンドウを開く場所のx座標
+     * @param y ウィンドウを開く場所のy座標
+     */
+    public static void open(int x, int y)
+    {
+        // 描画オブジェクトを生成する。
+        OpenGLObject aDragon = new Dragon();
+
+        // モデルに描画オブジェクトを指定してウィンドウを開く。
+        OpenGLModel aModel = new OpenGLModel(aDragon);
+        aModel.axesScale(1.0d);
+        aModel.windowTitle("Dragon");
+        OpenGLProjection aProjection = aModel.projection();
+        aProjection.eyePoint(-5.5852450791872d, 3.07847342734d, 15.794105252496d);
+        aProjection.sightPoint(0.27455347776413d, 0.20096999406815d, -0.11261999607086d);
+        aProjection.upVector(0.1018574904194d, 0.98480906061847d, -0.14062775604137d);
+        aProjection.fovy(12.642721790235d);
+        aModel.open(x, y);
+
+        return;
+    }
+}
+</pre>
+</blockquote>
+<!--********************************************************************************************************************-->
+<blockquote>
+<div class="belt-blue">
+<h4><a name="dragon_Example">dragon.Example</a></h4>
+</div>
+<!-- python -c 'print(",".join([str(x) for x in range(0, 0)]))' -->
+<pre class="brush: java; toolbar: false; first-line: 1; highlight: [];">
+package dragon;
+
+/**
+ * ドラゴンをOpenGLでレンダリング（描画）するプログラムである。
+ * JOGL（Java bindings for OpenGL）の例題プログラムである。
+ * OpenGLを使ったJavaによる三次元グラフィックスの初歩的な練習になる。
+ * オブザーバ・デザインパターン（MVC: Model-View-Controller）を用いた典型的（模範的）なプログラムである。
+ */
+public class Example extends Object
+{
+    /**
+     * OpenGLオブジェクトからOpenGLモデルを生成してウィンドウを開く。
+     * @param arguments コマンドの引数列（文字列の配列）
+     */
+    public static void main(String[] arguments)
+    {
+        int x = 100;
+        int y = 100;
+
+        // ドラゴンを生成してウィンドウを開く。
+        Dragon.open(x += 25, y += 25);
+
+        return;
+    }
+}
+</pre>
+</blockquote>
+<!--********************************************************************************************************************-->
+<blockquote>
+<div class="belt-yellow">
+<h4><a name="mvc4jogl_OpenGLCompound">mvc4jogl.OpenGLCompound</a><span style="font-size: x-small;">（<a href="version3.html#mvc4jogl_OpenGLCompound"><span style="color:#0000ff">以前に示したもの</span></a>と同様ゆえに省略）</span></h4>
+</div>
+<!-- python -c 'print(",".join([str(x) for x in range(0, 0)]))' -->
+<pre class="brush: java; toolbar: false; first-line: 1; highlight: [];">
+…
+</pre>
+</blockquote>
+<!--********************************************************************************************************************-->
+<blockquote>
+<div class="belt-yellow">
+<h4><a name="mvc4jogl_OpenGLController">mvc4jogl.OpenGLController</a></h4>
+</div>
+<!-- python -c 'print(",".join([str(x) for x in range(0, 0)]))' -->
+<pre class="brush: java; toolbar: false; first-line: 1; highlight: [];">
+package mvc4jogl;
+
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+/**
+ * Ｃ：OpenGLを使ったJava三次元グラフィックスのためのコントローラ（Controller）である。
+ */
+public class OpenGLController extends Object implements WindowListener
+{
+    /**
+     * モデルを記憶するフィールドである。
+     */
+    protected OpenGLModel model;
+
+    /**
+     * ビューを記憶するフィールドである。
+     */
+    protected OpenGLView view;
+
+    /**
+     * コントローラのコンストラクタである。
+     * モデルとビューを引数にしてコントローラのインスタンスを応答する。
+     * @param aModel モデル
+     * @param aView ビュー
+     */
+    public OpenGLController(OpenGLModel aModel, OpenGLView aView)
+    {
+        model = aModel;
+        view = aView;
+
+        return;
+    }
+
+    // --- WindowListener --------------------------------------------------
+
+    /**
+     * ウィンドウがに設定されると呼び出される。
+     * @param aWindowEvent ウィンドウイベント
+     */
+    public void windowActivated(WindowEvent aWindowEvent)
+    {
+        // System.out.println(aWindowEvent.paramString());
+
+        return;
+    }
+
+    /**
+     * ウィンドウに対するdisposeの呼び出しの結果として、ウィンドウがクローズされたときに呼び出される。
+     * @param aWindowEvent ウィンドウイベント
+     */
+    public void windowClosed(WindowEvent aWindowEvent)
+    {
+        // System.out.println(aWindowEvent.paramString());
+
+        return;
+    }
+
+    /**
+     * ウィンドウを閉じようとした時に呼び出される。
+     * @param aWindowEvent ウィンドウイベント
+     */
+    public void windowClosing(WindowEvent aWindowEvent)
+    {
+        // System.out.println(aWindowEvent.paramString());
+
+        // 終了する。
+        System.exit(0);
+
+        return;
+    }
+
+    /**
+     * ウィンドウがアクティブでなくなったときに呼び出される。
+     * @param aWindowEvent ウィンドウイベント
+     */
+    public void windowDeactivated(WindowEvent aWindowEvent)
+    {
+        // System.out.println(aWindowEvent.paramString());
+
+        return;
+    }
+
+    /**
+     * ウィンドウが最小化された状態から通常の状態に変更されたときに呼び出される。
+     * @param aWindowEvent ウィンドウイベント
+     */
+    public void windowDeiconified(WindowEvent aWindowEvent)
+    {
+        // System.out.println(aWindowEvent.paramString());
+
+        return;
+    }
+
+    /**
+     * ウィンドウが通常の状態から最小化された状態に変更されたときに呼び出される。
+     * @param aWindowEvent ウィンドウイベント
+     */
+    public void windowIconified(WindowEvent aWindowEvent)
+    {
+        // System.out.println(aWindowEvent.paramString());
+
+        return;
+    }
+
+    /**
+     * ウィンドウが最初に可視になったときに呼び出される。
+     * @param aWindowEvent ウィンドウイベント
+     */
+    public void windowOpened(WindowEvent aWindowEvent)
+    {
+        // System.out.println(aWindowEvent.paramString());
+
+        return;
+    }
+
+    // ---------------------------------------------------------------------
+}
+</pre>
+</blockquote>
+<!--********************************************************************************************************************-->
+<blockquote>
+<div class="belt-yellow">
+<h4><a name="mvc4jogl_OpenGLModel">mvc4jogl.OpenGLModel</a></h4>
+</div>
+<!-- python -c 'print(",".join([str(x) for x in range(0, 0)]))' -->
+<pre class="brush: java; toolbar: false; first-line: 1; highlight: [];">
+package mvc4jogl;
+
+import com.jogamp.opengl.GL;
+import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.glu.GLU;
+import com.jogamp.opengl.util.gl2.GLUT;
+
+import com.jogamp.opengl.awt.GLCanvas;
+
+import java.awt.Frame;
+
+/**
+ * Ｍ：OpenGLを使ったJava三次元グラフィックスのためのモデル（Model）である。
+ */
+public class OpenGLModel extends Object
+{
+    /**
+     * 描画オブジェクトを記憶するフィールドである。
+     */
+    protected OpenGLObject displayObject;
+
+    /**
+     * プロジェクションを記憶するフィールドである。
+     */
+    protected OpenGLProjection projection;
+
+    /**
+     * 高速描画のためのディスプレイリストを記憶するフィールドである。
+     */
+    protected int displayList;
+
+    /**
+     * ビューを記憶するフィールドである。
+     */
+    protected OpenGLView view;
+
+    /**
+     * XYZ軸のスケール（大きさ）を記憶するフィールドである。
+     */
+    protected double axesScale;
+
+    /**
+     * ウィンドウタイトルを記憶するフィールドである。
+     */
+    protected String windowTitle;
+
+    /**
+     * モデルのコンストラクタである。
+     * 自分を指定してビューを生成することによりＭＶＣを形成する。
+     * @param aBody 描画オブジェクト
+     */
+    public OpenGLModel(OpenGLObject aBody)
+    {
+        this.displayObject = aBody;
+        this.projection = new OpenGLProjection();
+        this.displayList = 0;
+        this.view = new OpenGLView(this);
+        this.axesScale = 1.0;
+        this.windowTitle = "Untitled";
+
+        return;
+    }
+
+    /**
+     * XYZ軸の大きさを応答する。
+     * @return XYZ軸の大きさ
+     */
+    public double axesScale()
+    {
+        return this.axesScale;
+    }
+
+    /**
+     * XYZ軸の大きさを設定する。
+     * @param scale XYZ軸の大きさ
+     */
+    public void axesScale(double scale)
+    {
+         this.axesScale = scale;
+
+        return;
+    }
+
+    /**
+     * ディスプレイリストを応答する。
+     * @return ディスプレイリスト
+     */
+    public int displayList()
+    {
+        if (this.displayList == 0)
+        {
+            GL2 gl = this.view.gl();
+            GLU glu = this.view.glu();
+            GLUT glut = this.view.glut();
+
+            this.displayList = gl.glGenLists(1);
+            gl.glNewList(this.displayList, GL2.GL_COMPILE);
+            this.displayObject.rendering(gl, glu, glut);
+            gl.glEndList();
+        }
+
+        return this.displayList;
+    }
+
+    /**
+     * OpenGLのウィンドウを開く。
+     */
+    public void open()
+    {
+        this.open(-1, -1);
+
+        return;
+    }
+
+    /**
+     * OpenGLのウィンドウを指定された場所(x, y)に開く。
+     * @param x ウィンドウを開く場所のx座標
+     * @param y ウィンドウを開く場所のy座標
+     */
+    public void open(int x, int y)
+    {
+        OpenGLView aView = this.view;
+        OpenGLController aController = aView.controller();
+
+        // OpenGL描画のためのキャンバスを生成する。
+        GLCanvas aCanvas = this.view.canvas();
+        aCanvas.addGLEventListener(aView);
+        aCanvas.setFocusable(true);
+
+        // フレームを生成し、上記のキャンバスを乗せて、ウィンドウとして開く。
+        Frame aFrame = new Frame(this.windowTitle());
+        aFrame.add(aCanvas);
+        aFrame.addNotify();
+        int titleBarHeight = aFrame.getInsets().top;
+        aFrame.setSize(400, 400 + titleBarHeight);
+        if (x &lt; 0 &amp;&amp; y &lt; 0)
+        {
+            aFrame.setLocationRelativeTo(null);
+        }
+        else
+        {
+            aFrame.setLocation(x, y);
+        }
+        aFrame.addWindowListener(aController);
+        aFrame.setFocusable(false);
+        aFrame.setVisible(true);
+
+        return;
+    }
+
+    /**
+     * プロジェクションを応答する。
+     * @return プロジェクション
+     */
+    public OpenGLProjection projection()
+    {
+        return this.projection;
+    }
+
+    /**
+     * レンダリング（描画）する。
+     */
+    public void rendering()
+    {
+        GL2 gl = this.view.gl();
+
+        gl.glCallList(this.displayList());
+
+        return;
+    }
+
+    /**
+     * ウィンドウタイトルを応答する。
+     * @return ウィンドウタイトル
+     */
+    public String windowTitle()
+    {
+        return this.windowTitle;
+    }
+
+    /**
+     * ウィンドウタイトルを設定する。
+     * @param title ウィンドウタイトル
+     */
+    public void windowTitle(String title)
+    {
+        this.windowTitle = title;
+
+        return;
+    }
+}
+</pre>
+</blockquote>
+<!--********************************************************************************************************************-->
+<blockquote>
+<div class="belt-yellow">
+<h4><a name="mvc4jogl_OpenGLObject">mvc4jogl.OpenGLObject</a><span style="font-size: x-small;">（<a href="version3.html#mvc4jogl_OpenGLObject"><span style="color:#0000ff">以前に示したもの</span></a>と同様ゆえに省略）</span></h4>
+</div>
+<!-- python -c 'print(",".join([str(x) for x in range(0, 0)]))' -->
+<pre class="brush: java; toolbar: false; first-line: 1; highlight: [];">
+…
+</pre>
+</blockquote>
+<!--********************************************************************************************************************-->
+<blockquote>
+<div class="belt-yellow">
+<h4><a name="mvc4jogl_OpenGLPolygon">mvc4jogl.OpenGLPolygon</a><span style="font-size: x-small;">（<a href="version3.html#mvc4jogl_OpenGLPolygon"><span style="color:#0000ff">以前に示したもの</span></a>と同様ゆえに省略）</span></h4>
+</div>
+<!-- python -c 'print(",".join([str(x) for x in range(0, 0)]))' -->
+<pre class="brush: java; toolbar: false; first-line: 1; highlight: [];">
+…
+</pre>
+</blockquote>
+<!--********************************************************************************************************************-->
+<blockquote>
+<div class="belt-yellow">
+<h4><a name="mvc4jogl_OpenGLProjection">mvc4jogl.OpenGLProjection</a><span style="font-size: x-small;">（<a href="version4.html#mvc4jogl_OpenGLProjection"><span style="color:#0000ff">以前に示したもの</span></a>と同様ゆえに省略）</span></h4>
+</div>
+<!-- python -c 'print(",".join([str(x) for x in range(0, 0)]))' -->
+<pre class="brush: java; toolbar: false; first-line: 1; highlight: [];">
+…
+</pre>
+</blockquote>
+<!--********************************************************************************************************************-->
+<blockquote>
+<div class="belt-yellow">
+<h4><a name="mvc4jogl_OpenGLTriangle">mvc4jogl.OpenGLTriangle</a><span style="font-size: x-small;">（<a href="version3.html#mvc4jogl_OpenGLTriangle"><span style="color:#0000ff">以前に示したもの</span></a>と同様ゆえに省略）</span></h4>
+</div>
+<!-- python -c 'print(",".join([str(x) for x in range(0, 0)]))' -->
+<pre class="brush: java; toolbar: false; first-line: 1; highlight: [];">
+…
+</pre>
+</blockquote>
+<!--********************************************************************************************************************-->
+<blockquote>
+<div class="belt-yellow">
+<h4><a name="mvc4jogl_OpenGLView">mvc4jogl.OpenGLView</a></h4>
+</div>
+<!-- python -c 'print(",".join([str(x) for x in range(0, 0)]))' -->
+<pre class="brush: java; toolbar: false; first-line: 1; highlight: [];">
+package mvc4jogl;
+
+import com.jogamp.opengl.GL;
+import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.glu.GLU;
+import com.jogamp.opengl.util.gl2.GLUT;
+
+import com.jogamp.opengl.awt.GLCanvas;
+import com.jogamp.opengl.GLAutoDrawable;
+import com.jogamp.opengl.GLCapabilities;
+import com.jogamp.opengl.GLEventListener;
+import com.jogamp.opengl.GLProfile;
+
+import java.awt.Dimension;
+
+/**
+ * Ｖ：OpenGLを使ったJava三次元グラフィックスのためのビュー（View）である。
+ */
+public class OpenGLView extends Object implements GLEventListener
+{
+    /**
+     * モデルを記憶するフィールドである。
+     */
+    protected OpenGLModel model;
+
+    /**
+     * コントローラを記憶するフィールドである。
+     */
+    protected OpenGLController controller;
+
+    /**
+     * OpenGLキャンバスを記憶するフィールドである。
+     */
+    protected GLCanvas canvas;
+
+    /**
+     * GLオブジェクトを記憶するフィールドである。
+     */
+    protected GL2 gl;
+
+    /**
+     * GLユーティリティを記憶するフィールドである。
+     */
+    protected GLU glu;
+
+    /**
+     * GLユーティリティツールキットを記憶するフィールドである。
+     */
+    protected GLUT glut;
+
+    /**
+     * ビューの幅を記憶するフィールドである。
+     */
+    protected int width;
+
+    /**
+     * ビューの高さを記憶するフィールドである。
+     */
+    protected int height;
+
+    /**
+     * ビューのコンストラクタである。
+     * モデルと自分を指定してコントローラを生成することによりＭＶＣを形成する。
+     * そして、OpenGLキャンバスを生成する。
+     * @param aModel モデル
+     */
+    public OpenGLView(OpenGLModel aModel)
+    {
+        this.model = aModel;
+        this.controller = new OpenGLController(model, this);
+
+        // GLProfile profile = GLProfile.getDefault();
+        GLProfile profile = GLProfile.get(GLProfile.GL2);
+        GLCapabilities capabilities = new GLCapabilities(profile);
+        capabilities.setDoubleBuffered(true);
+        this.canvas = new GLCanvas(capabilities);
+
+        return;
+    }
+
+    /**
+     * OpenGLキャンバスを応答する。
+     * @return OpenGLキャンバス
+     */
+    public GLCanvas canvas()
+    {
+        return this.canvas;
+    }
+
+    /**
+     * コントローラを応答する。
+     * @return コントローラ
+     */
+    public OpenGLController controller()
+    {
+        return this.controller;
+    }
+
+    /**
+     * GLを応答する。
+     * @return GL2
+     */
+    public GL2 gl()
+    {
+        return this.gl;
+    }
+
+    /**
+     * GLUを応答する。
+     * @return GLU
+     */
+    public GLU glu()
+    {
+        return this.glu;
+    }
+
+    /**
+     * GLUTを応答する。
+     * @return GLUT
+     */
+    public GLUT glut()
+    {
+        return this.glut;
+    }
+
+    /**
+     * OpenGL起動時に初期化のために呼び出される。
+     * @param aDrawable OpenGLの描画ダーゲット
+     */
+    public void init(GLAutoDrawable aDrawable)
+    {
+        // System.out.println("init");
+
+        // グラフィックライブラリ（gl）を獲得し、
+        // グラフィックライブラリユーティリティ（glu）と
+        // グラフィックライブラリユーティリティツールキット（glut）を生成する。
+        this.gl = aDrawable.getGL().getGL2();
+        this.glu = new GLU();
+        this.glut = new GLUT();
+
+        // 材質の有効化
+        // 陰線隠面処理の有効化
+        // 片面表示機能の無効化
+        // 法線ベクトルの有効化
+        this.gl.glEnable(GL2.GL_COLOR_MATERIAL);
+        this.gl.glEnable(GL2.GL_DEPTH_TEST);
+        this.gl.glDisable(GL2.GL_CULL_FACE);
+        this.gl.glEnable(GL2.GL_NORMALIZE);
+
+        return;
+    }
+
+    /**
+     * OpenGL描画を行う際に呼び出される。
+     * @param aDrawable OpenGLの描画ダーゲット
+     */
+    public void display(GLAutoDrawable aDrawable)
+    {
+        // System.out.println("display");
+        // aDrawable.swapBuffers();
+
+        // 視界（視点・注視点・上方向ベクトル・視界角・近・遠）を整（設）える。
+        OpenGLProjection projection = this.model.projection();
+        double[] eyePoint = projection.eyePoint();
+        double[] sightPoint = projection.sightPoint();
+        double[] upVector = projection.upVector();
+        double fovy = projection.fovy();
+        double near = projection.near();
+        double far = projection.far();
+
+        // キャンバス（ウィンドウ）の大きさからアスペクト比を求める。
+        double aspect = (double)width / (double)height;
+
+        // プロジェクション（遠近法）を設定する。
+        this.gl.glMatrixMode(GL2.GL_PROJECTION);
+        this.gl.glLoadIdentity();
+        this.glu.gluPerspective(fovy, aspect, near, far);
+
+        // 視界を設定する。
+        this.gl.glMatrixMode(GL2.GL_MODELVIEW);
+        this.gl.glLoadIdentity();
+        this.glu.gluLookAt(
+                eyePoint[0], eyePoint[1], eyePoint[2],
+                sightPoint[0], sightPoint[1], sightPoint[2],
+                upVector[0], upVector[1], upVector[2]);
+
+        // キャンバスをクリアする。
+        this.gl.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+        this.gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+
+        // 照明を設定する。
+        this.gl.glEnable(GL2.GL_LIGHTING);
+        this.gl.glLightModelfv(GL2.GL_LIGHT_MODEL_AMBIENT, OpenGLObject.asFloatBuffer(new float[] { 0.5f, 0.5f, 0.5f, 1.0f }));
+        this.gl.glLightModelf(GL2.GL_LIGHT_MODEL_LOCAL_VIEWER, 0.0f);
+        this.gl.glLightModelf(GL2.GL_LIGHT_MODEL_TWO_SIDE, 1.0f);
+        this.gl.glEnable(GL2.GL_LIGHT0);
+        this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_POSITION, OpenGLObject.asFloatBuffer(new float[] { 0.0f, 0.0f, 1.0f, 0.0f }));
+        this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_SPOT_DIRECTION, OpenGLObject.asFloatBuffer(new float[] { 0.0f, 0.0f, -1.0f }));
+        this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_SPOT_CUTOFF, OpenGLObject.asFloatBuffer(new float[] { 90.0f }));
+        this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, OpenGLObject.asFloatBuffer(new float[] { 0.5f, 0.5f, 0.5f, 1.0f }));
+        this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_SPECULAR, OpenGLObject.asFloatBuffer(new float[] { 0.5f, 0.5f, 0.5f, 1.0f }));
+        this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_LINEAR_ATTENUATION, OpenGLObject.asFloatBuffer(new float[] { 0.0f }));
+        this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_QUADRATIC_ATTENUATION, OpenGLObject.asFloatBuffer(new float[] { 0.0f }));
+        this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_CONSTANT_ATTENUATION, OpenGLObject.asFloatBuffer(new float[] { 1.0f }));
+
+        // 世界座標系（XYZ軸）を描画する。
+        this.displayAxes();
+
+        // モデルの描画オブジェクトを描画する。
+        this.model.rendering();
+
+        return;
+    }
+
+    /**
+     * XYZ軸（世界座標系）を描画する。
+     */
+    public void displayAxes()
+    {
+        double scale = this.model.axesScale();
+
+        this.gl.glBegin(GL2.GL_LINES);
+
+        // X軸（赤）
+        this.gl.glColor4d(1.0d, 0.0d, 0.0d, 1.0d);
+        this.gl.glVertex3d(-1.000d * scale, 0.0d, 0.0d);
+        this.gl.glVertex3d( 1.618d * scale, 0.0d, 0.0d);
+
+        // Y軸（緑）
+        this.gl.glColor4d(0.0d, 1.0d, 0.0d, 1.0d);
+        this.gl.glVertex3d(0.0d, -1.000d * scale, 0.0d);
+        this.gl.glVertex3d(0.0d,  1.618d * scale, 0.0d);
+
+        // Z軸（青）
+        this.gl.glColor4d(0.0d, 0.0d, 1.0d, 1.0d);
+        this.gl.glVertex3d(0.0d, 0.0d, -1.000d * scale);
+        this.gl.glVertex3d(0.0d, 0.0d,  1.618d * scale);
+
+        this.gl.glEnd();
+
+        return;
+    }
+
+    /**
+     * OpenGL表示モードや表示デバイスが変更された際に呼び出される。
+     * @param aDrawable OpenGLの描画ダーゲット
+     * @param modeChanged 表示モードが変更されたか否か
+     * @param deviceChanged 表示デバイスが変更されたか否か
+     */
+    public void displayChanged(GLAutoDrawable aDrawable, boolean modeChanged, boolean deviceChanged)
+    {
+        // System.out.println("displayChanged");
+
+        return;
+    }
+
+    /**
+     * OpenGLの資源が破棄された際に呼び出される。
+     * @param aDrawable OpenGLの描画ダーゲット
+     */
+    public void dispose(GLAutoDrawable aDrawable)
+    {
+        // System.out.println("dispose");
+
+        return;
+    }
+
+    /**
+     * OpenGL表示領域が変更された際に呼び出される。
+     * @param aDrawable OpenGLの描画ダーゲット
+     * @param x 表示領域のX座標
+     * @param y 表示領域のY座標
+     * @param w 表示領域の幅
+     * @param h 表示領域の高さ
+     */
+    public void reshape(GLAutoDrawable aDrawable, int x, int y, int w, int h)
+    {
+        // System.out.println("reshape");
+
+        this.width = w;
+        this.height = h;
+
+        this.gl.glViewport(0, 0, width, height);
+
+        return;
+    }
+}
+</pre>
+</blockquote>
+<!--********************************************************************************************************************-->
+<blockquote>
+<div class="belt-yellow">
+<h4><a name="mvc4jogl_Teapot">mvc4jogl.Teapot</a><span style="font-size: x-small;">（<a href="version3.html#mvc4jogl_Teapot"><span style="color:#0000ff">以前に示したもの</span></a>と同様ゆえに省略）</span></h4>
+</div>
+<!-- python -c 'print(",".join([str(x) for x in range(0, 0)]))' -->
+<pre class="brush: java; toolbar: false; first-line: 1; highlight: [];">
+…
+</pre>
+</blockquote>
+<!--********************************************************************************************************************-->
+<div class="belt">
+<h3><a name="BuildAndResult">ビルド＆実行結果</a>（Version 5）</h3>
+</div>
+<p>では、実行してみましょう。今回もリファクタリングですから、結果は同じになります。</p>
+<blockquote>
+<pre>
+$ <span style="color:#ff0000">make test</span>
+env LC_ALL=ja_JP.UTF-8 ant test
+Picked up _JAVA_OPTIONS: -Dfile.encoding=UTF-8
+Buildfile: /Users/aoki/Developments/Languages/Java/Dragon/Version5/build.xml
+
+prepare:
+     [exec] 2019年 12月27日 金曜日 10時50分42秒 JST
+
+compile:
+    [javac] Compiling 11 source files to /Users/aoki/Developments/Languages/Java/Dragon/Version5/Classes
+    [javac] Picked up _JAVA_OPTIONS: -Dfile.encoding=UTF-8
+     [exec] 2019年 12月27日 金曜日 10時50分44秒 JST
+
+jar:
+      [jar] Building jar: /Users/aoki/Developments/Languages/Java/Dragon/Version5/dragon.jar
+      [jar] Building jar: /Users/aoki/Developments/Languages/Java/Dragon/Version5/dragon-natives-macosx-universal.jar
+     [exec] 2019年 12月27日 金曜日 10時50分45秒 JST
+
+all:
+     [exec] 2019年 12月27日 金曜日 10時50分45秒 JST
+
+test:
+     [exec] Picked up _JAVA_OPTIONS: -Dfile.encoding=UTF-8
+     [exec] 2019年 12月27日 金曜日 10時50分52秒 JST
+
+BUILD SUCCESSFUL
+Total time: 11 seconds
+$ 
+</pre>
+</blockquote>
+<blockquote><img src="images/version_4_R.jpg" width="402" height="424" alt="version_4_R"></blockquote>
+<!--********************************************************************************************************************-->
+<hr>
+<p><a href="version4.html">←</a> <a href="version5.html">↑</a> <a href="version6.html">→</a></p>
+<hr>
+<div class="right-small">Updated: 2019/12/27 (Created: 2010/11/11) <a href="http://www.kyoto-su.ac.jp/"><img class="borderless" src="http://www.cc.kyoto-su.ac.jp/~atsushi/thumbnails/KSU.jpg" width="115" height="30" alt="KSU"></a> <a href="http://www.cc.kyoto-su.ac.jp/~atsushi/"><img class="borderless" src="http://www.cc.kyoto-su.ac.jp/~atsushi/thumbnails/AokiHanko.jpg" width="32" height="32" alt="AokiHanko"></a></div>
+</body>
+</html>

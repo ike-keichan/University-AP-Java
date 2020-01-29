@@ -1,0 +1,407 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="keywords" content="Aoki,Atsushi,Smalltalk,Smalltalker,Program,Programmer,Object,Oriented,Programming">
+<meta name="description" content="青木淳（あおきあつし）のホームページ">
+<meta name="author" content="AOKI Atsushi">
+<link rev="made" href="mailto:atsushi@cc.kyoto-su.ac.jp">
+<link rel="index" href="index-j.html">
+<link rel="shortcut icon" href="http://www.cc.kyoto-su.ac.jp/~atsushi/icons/aoki.ico">
+<style type="text/css">
+<!--
+body {
+  background-color : #ffffff;
+  margin : 20px;
+  padding : 10px;
+  font-family : serif;
+  font-size : 10pt;
+}
+a {
+  text-decoration : underline;
+  color : #000000;
+}
+a:link {
+  background-color : #ffddbb;
+}
+a:visited {
+  background-color : #ccffcc;
+}
+a:hover {
+  background-color : #dddddd;
+}
+a:active {
+  background-color : #dddddd;
+}
+div.belt {
+  background-color : #eeeeee;
+  padding : 0px 4px;
+}
+div.belt-yellow {
+  background-color : #ffffcc;
+  padding : 0px 4px;
+}
+div.belt-blue {
+  background-color : #ddeeff;
+  padding : 0px 4px;
+}
+div.belt-pink {
+  background-color : #ffeedd;
+  padding : 0px 4px;
+}
+div.right-small {
+  text-align : right;
+  font-size : 8pt;
+}
+img.border {
+  border-width : 1px;
+  border-color : #000000;
+  vertical-align : middle;
+}
+img.borderless {
+  border-width : 0px;
+  vertical-align : middle;
+}
+p.belt {
+  background-color : #ffeedd;
+  padding : 4px 8px;
+}
+p.belt-blue {
+  background-color : #ddeeff;
+  padding : 4px 8px;
+}
+pre.belt {
+  background-color : #ddeeff;
+  padding : 4px 8px;
+}
+pre.belt-yellow {
+  background-color : #ffffcc;
+  padding : 4px 8px;
+}
+table {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  font-family : serif;
+  font-size : 10pt;
+}
+table.profile {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  font-family : serif;
+  font-size : 10pt;
+  margin-top : 8px;
+  margin-left : 8px;
+  margin-right : 8px;
+  margin-bottom : 8px;
+}
+table.belt {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  background-color : #ffeedd;
+  padding : 0px 0px;
+  width : 100%;
+}
+table.content {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 2px 4px;
+}
+table.font-fixed {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 2px 4px;
+  font-family : monospace;
+}
+table.nest {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 0px 0px;
+}
+td {
+  padding : 0px 0px;
+  vertical-align : middle;
+}
+td.center {
+  text-align : center;
+}
+td.center-half {
+  text-align : center;
+  width : 50%;
+  font-size : 8pt;
+}
+td.center-small {
+  text-align : center;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.center-small-nopadding {
+  text-align : center;
+  font-size : 8pt;
+  padding : 0px 0px;
+}
+td.center-white {
+  text-align : center;
+  background-color : #ffffff;
+}
+td.center-small-white {
+  text-align : center;
+  font-size : 8pt;
+  background-color : #ffffff;
+}
+td.center-border1 {
+  text-align : center;
+  vertical-align : middle;
+  empty-cells : show;
+  border-style : solid;
+  border-width : 1px;
+  border-color : #ffc080;
+  width : 22px;
+  height : 22px;
+}
+td.left-small {
+  text-align : left;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.left-small-white {
+  text-align : left;
+  font-size : 8pt;
+  padding : 0px 4px;
+  background-color : #ffffff;
+}
+td.right-small {
+  text-align : right;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.right-small-white {
+  text-align : right;
+  font-size : 8pt;
+  padding : 0px 4px;
+  background-color : #ffffff;
+}
+th {
+  padding : 0px 0px;
+  vertical-align : middle;
+}
+#menu {
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+  height: 32px;
+}
+#menu ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-align: center;
+  clear: both;
+}
+#menu li {
+  margin: 0px 5px 0px 0px;
+  padding: 0px;
+  float: left;
+}
+#menu a {
+  display: block;
+  padding: 2px 4px;
+  text-decoration: none;
+  margin: 0px;
+  font-weight: bold;
+  background: #FFFFFF;
+  color: #333333;
+  border: 1px solid #666666;
+}
+#menu a:hover {
+  display: block;
+  padding: 2px 4px;
+  border-bottom: 1px solid #000000;
+  text-decoration: none;
+  background: #FFCC66;
+}
+#menu .current {
+  background-color: #F45F57;
+  font-weight: bold;
+  color: #FFFFFF;
+  border: 1px solid #333333;
+}
+-->
+</style>
+<!-- SyntaxHighlighter BEGIN -->
+<link href="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/styles/shCore.css" rel="stylesheet" type="text/css">
+<link href="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/styles/shThemeEclipse.css" rel="stylesheet" type="text/css">
+<script src="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/scripts/shCore.js" type="text/javascript"></script>
+<script src="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/scripts/shBrushJava.js" type="text/javascript"></script>
+<script src="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/scripts/shBrushPlain.js" type="text/javascript"></script>
+<script src="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/scripts/shBrushPython.js" type="text/javascript"></script>
+<script type="text/javascript"> 
+<!--
+SyntaxHighlighter.config.bloggerMode = true;
+SyntaxHighlighter.config.clipboardSwf = 'http://alexgorbatchev.com/pub/sh/current/scripts/clipboard.swf';
+SyntaxHighlighter.all();
+SyntaxHighlighter.defaults['auto-links'] = false;
+-->
+</script>
+<!-- SyntaxHighlighter END -->
+<title>Version 2：OpenGLのキャンバスをフレームの中身として入れる</title>
+</head>
+<body>
+<div id="menu">
+<ul>
+  <li><a href="../Lectures/index-j.html#TryJOGL">Javaプログラム集</a></li>
+  <li><a href="index-j.html">TryJODL</a></li>
+  <li><a href="version0.html">0</a></li>
+  <li><a href="version1.html">1</a></li>
+  <li><a href="version2.html" class="current">2</a></li>
+  <li><a href="version3.html">3</a></li>
+  <li><a href="version4.html">4</a></li>
+  <li><a href="version5.html">5</a></li>
+  <li><a href="version6.html">6</a></li>
+  <li><a href="version7.html">7</a></li>
+  <li><a href="version8.html">8</a></li>
+  <li><a href="version9.html">9</a></li>
+</ul>
+</div>
+<hr>
+<h2>Version 2：OpenGLのキャンバスをフレームの中身として入れる</h2>
+<p>今回はJavaとOpenGLをくっつけるために「Version 1」を「Version 2」にしましょう。「tryjogl」ディレクトリ（パッケージ）にある「Example.java」の中身を、以下のソースコードと同じになるように直してください。編集するところをハイライトで表しておきます。Swingのフレーム（ウィンドウ）の中にOpenGLのキャンバスを配置するプログラミングになります。</p>
+<div class="belt">
+<h3><a name="SourceCode">ソースコード</a>（Version 2）</h3>
+</div>
+<blockquote>
+<!-- python -c 'print(",".join([str(x) for x in range(0, 0)]))' -->
+<pre class="brush: java; toolbar: false; first-line: 1; highlight: [3,4,5, 9,10, 25,26,27,28,29, 33, 46,47,48,49,50,51,52,53,54,55,56,57,58];">
+package tryjogl;
+
+import com.jogamp.opengl.awt.GLCanvas;
+import com.jogamp.opengl.GLCapabilities;
+import com.jogamp.opengl.GLProfile;
+
+import javax.swing.JFrame;
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+/**
+ * JOGL（Java bindings for OpenGL）の例題プログラムである。
+ * OpenGLを使ったJavaによる三次元グラフィックスの初歩的な練習になる。
+ */
+public class Example extends WindowAdapter
+{
+    /**
+     * Exampleのコンストラクタである。
+     */
+    public Example()
+    {
+        System.out.println("Example");
+
+        // OpenGL描画のためのキャンバスを生成する。
+        GLProfile profile = GLProfile.get(GLProfile.GL2);
+        GLCapabilities capabilities = new GLCapabilities(profile);
+        capabilities.setDoubleBuffered(true);
+        GLCanvas aCanvas = new GLCanvas(capabilities);
+
+        // フレームを生成し、上記のキャンバスを乗せて、ウィンドウとして開く。
+        JFrame aFrame = new JFrame("Wire Teapot");
+        aFrame.add(aCanvas);
+        aFrame.addNotify();
+        int titleBarHeight = aFrame.getInsets().top;
+        aFrame.setSize(400, 400 + titleBarHeight);
+        aFrame.setLocationRelativeTo(null);
+        // aFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        aFrame.addWindowListener(this);
+        aFrame.setFocusable(false);
+        aFrame.setVisible(true);
+
+        return;
+    }
+
+    /**
+     * ウィンドウを閉じようとした時に呼び出される。
+     * @param aWindowEvent ウィンドウイベント
+     */
+    public void windowClosing(WindowEvent aWindowEvent)
+    {
+        // System.out.println(aWindowEvent.paramString());
+
+        // 終了する。
+        System.exit(0);
+
+        return;
+    }
+
+    /**
+     * 針金細工のティーポット（Wire Teapot）を描くOpenGLのウィンドウを開く。
+     * @param arguments コマンドの引数列（文字列の配列）
+     */
+    public static void main(String[] arguments)
+    {
+        System.out.println("main");
+
+        new Example();
+
+        return;
+    }
+}
+</pre>
+</blockquote>
+<div class="belt">
+<h3><a name="Explanation">プログラムの解説</a></h3>
+</div>
+<p>まず、OpenGL描画のためのキャンバスであるGLキャンバス「<a href="https://jogamp.org/deployment/jogamp-current/javadoc/jogl/javadoc/com/jogamp/opengl/awt/GLCanvas.html">GLCanvas</a>」をインポートします。このGLキャンバスのインスタンスを得る正式な方法は、GLプロフィール「<a href="https://jogamp.org/deployment/jogamp-current/javadoc/jogl/javadoc/com/jogamp/opengl/GLProfile.html">GLProfile</a>」からGLケイパビリティーズ「<a href="https://jogamp.org/deployment/jogamp-current/javadoc/jogl/javadoc/com/jogamp/opengl/GLCapabilities.html">GLCapabilities</a>」を作り、そのGLケイパビリティーズからGLキャンバスを生成することですから、それらもインポートしなければなりません。</p>
+<p>JOGLのバージョンが2以降になってから、GLはGL2になりました。多くの定数（リテラル）もGLの下ではなく、GL2の下にあります。そこで、引数に文字列リテラル「<a href="https://jogamp.org/deployment/jogamp-current/javadoc/jogl/javadoc/com/jogamp/opengl/GLProfile.html#GL2">GLProfile.GL2</a>」を与えたメッセージ「<a href="https://jogamp.org/deployment/jogamp-current/javadoc/jogl/javadoc/com/jogamp/opengl/GLProfile.html#get(java.lang.String)">get(String)</a>」を発信し、GLプロフィールのスタティックメソッド（クラスメソッド）を動かして、GL2用のGLプロフィールのインスタンスを得ます。</p>
+<p>そして、そのGLプロフィールを引数にしてGLケイパビリティーズのインスタンスを生成し、ダブルバッファ方式の描画（チラつきを抑えて描く常套手段：いま見えているキャンバスをクリアしてイチイチ描くからチラつくのであって、見えないキャンバスを用意して、そのキャンバスに裏でシコシコ描き、描き終わったところで、いま見えているキャンバスと一気に入れ替える方式）を行うことを「<a href="https://jogamp.org/deployment/jogamp-current/javadoc/jogl/javadoc/com/jogamp/opengl/GLCapabilities.html#setDoubleBuffered(boolean)">setDoubleBuffered(boolean)</a>」のメッセージで伝えておきます。</p>
+<p>その後、そのGLケイパビリティーズを引数にしてGLキャンバスのインスタンスを獲得します。GLキャンバスは<a href="https://jogamp.org/deployment/jogamp-current/javadoc/jogl/javadoc/com/jogamp/opengl/awt/package-tree.html">クラス階層</a>を調べると、java.awt.Canvasのサブクラスであり、コンポーネントの一種です。ですから、Swingのフレーム（ウィンドウ）の中身に指定することが可能です。JFrameのインスタンスをレシーバにして「<a href="http://docs.oracle.com/javase/jp/8/docs/api/java/awt/Container.html#add-java.awt.Component-">add(Component)</a>」のメッセージを発信できます。</p>
+<p>蛇足になりますが、「aFrame.<a href="https://docs.oracle.com/javase/jp/13/docs/api/java.desktop/javax/swing/JFrame.html#setDefaultCloseOperation(int)">setDefaultCloseOperation</a>(JFrame.DO_NOTHING_ON_CLOSE)」をコメントアウトして、Exampleを<a href="https://docs.oracle.com/javase/jp/13/docs/api/java.desktop/java/awt/event/WindowAdapter.html">WindowAdapter</a>のサブクラスにすることで、クローズイベント（ウィンドウを閉じた事象）を、「aFrame.<a href="https://docs.oracle.com/javase/jp/13/docs/api/java.desktop/java/awt/Window.html#addWindowListener(java.awt.event.WindowListener)">addWindowListener</a>(this)」で受け取るように指示し、メソッド「public void <a href="https://docs.oracle.com/javase/jp/13/docs/api/java.desktop/java/awt/event/WindowAdapter.html#windowClosing(java.awt.event.WindowEvent)">windowClosing</a>(WindowEvent aWindowEvent)」で処理（終了：「System.<a href="https://docs.oracle.com/javase/jp/13/docs/api/java.base/java/lang/System.html#exit(int)">exit</a>(0)」）するようになっています。</p>
+<div class="belt">
+<h3><a name="BuildAndResult">ビルド＆実行結果</a>（Version 2）</h3>
+</div>
+<p>では、ビルドして実行してみましょう。GLキャンバスのインスタンスが中身として入りましたので、ウィンドウの中が黒く（GLキャンバスのデフォルトの色）なります。</p>
+<blockquote>
+<pre>
+$ <span style="color:#ff0000">make test</span>
+env LC_ALL=ja_JP.UTF-8 ant test
+Picked up _JAVA_OPTIONS: -Dfile.encoding=UTF-8
+Buildfile: /Users/aoki/Java/TryJOGL/Version2/build.xml
+
+prepare:
+     [exec] 2019年 12月19日 木曜日 14時21分04秒 JST
+
+compile:
+    [javac] Compiling 1 source file to /Users/aoki/Desktop/Version2/Classes
+    [javac] Picked up _JAVA_OPTIONS: -Dfile.encoding=UTF-8
+     [exec] 2019年 12月19日 木曜日 14時21分05秒 JST
+
+jar:
+      [jar] Building jar: /Users/aoki/Desktop/Version2/tryjogl.jar
+      [jar] Building jar: /Users/aoki/Desktop/Version2/tryjogl-natives-macosx-universal.jar
+     [exec] 2019年 12月19日 木曜日 14時21分06秒 JST
+
+all:
+     [exec] 2019年 12月19日 木曜日 14時21分06秒 JST
+
+test:
+     [exec] Picked up _JAVA_OPTIONS: -Dfile.encoding=UTF-8
+     [exec] main
+     [exec] Example
+     [exec] 2019年 12月19日 木曜日 14時21分13秒 JST
+
+BUILD SUCCESSFUL
+Total time: 9 seconds
+$ 
+</pre>
+</blockquote>
+<blockquote><img src="images/version_2_1.jpg" width="402" height="424" alt="version_2_1"></blockquote>
+<hr>
+<p><a href="version1.html">←</a> <a href="version2.html">↑</a> <a href="version3.html">→</a></p>
+<hr>
+<div class="right-small">Updated: 2019/12/19 (Created: 2010/11/11) <a href="http://www.kyoto-su.ac.jp/"><img class="borderless" src="http://www.cc.kyoto-su.ac.jp/~atsushi/thumbnails/KSU.jpg" width="115" height="30" alt="KSU"></a> <a href="http://www.cc.kyoto-su.ac.jp/~atsushi/"><img class="borderless" src="http://www.cc.kyoto-su.ac.jp/~atsushi/thumbnails/AokiHanko.jpg" width="32" height="32" alt="AokiHanko"></a></div>
+</body>
+</html>

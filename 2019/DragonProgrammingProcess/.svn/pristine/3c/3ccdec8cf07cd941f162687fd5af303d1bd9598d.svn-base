@@ -1,0 +1,329 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="keywords" content="Aoki,Atsushi,Smalltalk,Smalltalker,Program,Programmer,Object,Oriented,Programming">
+<meta name="description" content="青木淳（あおきあつし）のホームページ">
+<meta name="author" content="AOKI Atsushi">
+<link rev="made" href="mailto:atsushi@cc.kyoto-su.ac.jp">
+<link rel="index" href="index-j.html">
+<link rel="shortcut icon" href="http://www.cc.kyoto-su.ac.jp/~atsushi/icons/aoki.ico">
+<style type="text/css">
+<!--
+body {
+  background-color : #ffffff;
+  margin : 20px;
+  padding : 10px;
+  font-family : serif;
+  font-size : 10pt;
+}
+a {
+  text-decoration : underline;
+  color : #000000;
+}
+a:link {
+  background-color : #ffddbb;
+}
+a:visited {
+  background-color : #ccffcc;
+}
+a:hover {
+  background-color : #dddddd;
+}
+a:active {
+  background-color : #dddddd;
+}
+div.belt {
+  background-color : #eeeeee;
+  padding : 0px 4px;
+}
+div.belt-yellow {
+  background-color : #ffffcc;
+  padding : 0px 4px;
+}
+div.belt-blue {
+  background-color : #ddeeff;
+  padding : 0px 4px;
+}
+div.belt-pink {
+  background-color : #ffeedd;
+  padding : 0px 4px;
+}
+div.right-small {
+  text-align : right;
+  font-size : 8pt;
+}
+img.border {
+  border-width : 1px;
+  border-color : #000000;
+  vertical-align : middle;
+}
+img.borderless {
+  border-width : 0px;
+  vertical-align : middle;
+}
+p.belt {
+  background-color : #ffeedd;
+  padding : 4px 8px;
+}
+p.belt-blue {
+  background-color : #ddeeff;
+  padding : 4px 8px;
+}
+pre.belt {
+  background-color : #ddeeff;
+  padding : 4px 8px;
+}
+pre.belt-yellow {
+  background-color : #ffffcc;
+  padding : 4px 8px;
+}
+table {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  font-family : serif;
+  font-size : 10pt;
+}
+table.profile {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  font-family : serif;
+  font-size : 10pt;
+  margin-top : 8px;
+  margin-left : 8px;
+  margin-right : 8px;
+  margin-bottom : 8px;
+}
+table.belt {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  background-color : #ffeedd;
+  padding : 0px 0px;
+  width : 100%;
+}
+table.content {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 2px 4px;
+}
+table.font-fixed {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 2px 4px;
+  font-family : monospace;
+}
+table.nest {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 0px 0px;
+}
+td {
+  padding : 0px 0px;
+  vertical-align : middle;
+}
+td.center {
+  text-align : center;
+}
+td.center-half {
+  text-align : center;
+  width : 50%;
+  font-size : 8pt;
+}
+td.center-small {
+  text-align : center;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.center-small-nopadding {
+  text-align : center;
+  font-size : 8pt;
+  padding : 0px 0px;
+}
+td.center-white {
+  text-align : center;
+  background-color : #ffffff;
+}
+td.center-small-white {
+  text-align : center;
+  font-size : 8pt;
+  background-color : #ffffff;
+}
+td.center-border1 {
+  text-align : center;
+  vertical-align : middle;
+  empty-cells : show;
+  border-style : solid;
+  border-width : 1px;
+  border-color : #ffc080;
+  width : 22px;
+  height : 22px;
+}
+td.left-small {
+  text-align : left;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.left-small-white {
+  text-align : left;
+  font-size : 8pt;
+  padding : 0px 4px;
+  background-color : #ffffff;
+}
+td.right-small {
+  text-align : right;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.right-small-white {
+  text-align : right;
+  font-size : 8pt;
+  padding : 0px 4px;
+  background-color : #ffffff;
+}
+th {
+  padding : 0px 0px;
+  vertical-align : middle;
+}
+#menu {
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+  height: 32px;
+}
+#menu ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-align: center;
+  clear: both;
+}
+#menu li {
+  margin: 0px 5px 0px 0px;
+  padding: 0px;
+  float: left;
+}
+#menu a {
+  display: block;
+  padding: 2px 4px;
+  text-decoration: none;
+  margin: 0px;
+  font-weight: bold;
+  background: #FFFFFF;
+  color: #333333;
+  border: 1px solid #666666;
+}
+#menu a:hover {
+  display: block;
+  padding: 2px 4px;
+  border-bottom: 1px solid #000000;
+  text-decoration: none;
+  background: #FFCC66;
+}
+#menu .current {
+  background-color: #F45F57;
+  font-weight: bold;
+  color: #FFFFFF;
+  border: 1px solid #333333;
+}
+-->
+</style>
+<title>ドラゴンのプログラミング過程とリファクタリング過程</title>
+</head>
+<body>
+<div id="menu">
+<ul>
+  <li><a href="../Lectures/index-j.html#DragonProgrammingProcess">Javaプログラム集</a></li>
+  <li><a href="index-j.html" class="current">ドラゴンのプログラミング過程とリファクタリング過程</a></li>
+  <li><a href="version0.html">0</a></li>
+  <li><a href="version1.html">1</a></li>
+  <li><a href="version2.html">2</a></li>
+  <li><a href="version3.html">3</a></li>
+  <li><a href="version4.html">4</a></li>
+  <li><a href="version5.html">5</a></li>
+  <li><a href="version6.html">6</a></li>
+  <li><a href="version7.html">7</a></li>
+  <li><a href="version8.html">8</a></li>
+  <li><a href="version9.html">9</a></li>
+</ul>
+</div>
+<hr>
+<h2>ドラゴンのプログラミング過程とリファクタリング過程</h2>
+<p>ドラゴンをレンダリングするだけのプログラムならば、すぐに（「<a href="version1.html">Version 2</a>」のように）作ることができます。しかし、それは動くだけのプログラムであり、けっして正しいプログラムではありません。プログラミング上達の第一歩は「動くプログラム」と「正しいプログラム」の違いを知ることです。オブジェクト指向プログラミングの観点からも良好なプログラムに仕立て上げましょう。JOGLのためのMVC「<a href="../Dragon/mvc4jogl/JavaDoc/index.html">MVC4JOGL</a>」を作成し、ドラゴンをマウスやキーボードで回転や拡大縮小ができるように改良します。</p>
+<div class="belt">
+<h3><a name="DragonResult">ドラゴン完成図</a>（実行結果）</h3>
+</div>
+<blockquote><a href="http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/VisualWorks/Dragon/dragon.txt">dragon.txt</a><br><img src="images/DragonResult.png" width="514" height="536" alt="DragonResult"><br>
+　　　　　視点 = [-5.5852450791872 , 3.07847342734 , 15.794105252496]<br>
+　　　　注視点 = [0.27455347776413 , 0.20096999406815 , -0.11261999607086]<br>
+上方向ベクトル = [0.1018574904194 , 0.98480906061847 , -0.14062775604137]<br>
+　　　　視界角 = 12.642721790235</blockquote>
+<div class="belt">
+<h3><a name="ProgrammingProcessAndRefactoringProcess">プログラミング過程とリファクタリング過程</a></h3>
+</div>
+<p>どうぞ、バージョン0からバージョン9までを、写経（長いお経を書き写しながら供養）をするように、後追い（真似）してくださると幸いです。一緒にJavaプログラミングの精進をいたしましょう。ここに示している「作ってゆく経過」が役に立つ（Javaプログラミングの初心者たちの福音になる）ことを願っております。</p>
+<ul>
+  <li><a href="version0.html">Version 0</a>：<span style="color:#ff0000">準備（ベースとなるプログラムをチェックアウト）する</span></li>
+  <li><a href="version1.html">Version 1</a>：<span style="color:#ff0000">三角形1つをXYZ軸と共に描き出す</span></li>
+  <li><a href="version2.html">Version 2</a>：<span style="color:#ff0000">ドラゴンデータ（<a href="http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/VisualWorks/Dragon/dragon.txt">dragon.txt</a>）を読み込んで三角形群を作る</span></li>
+  <li><a href="version3.html">Version 3</a>：<span style="color:#ff0000">描画オブジェクト階層（OpenGLObjectインヘリタンス）を導入する</span></li>
+  <li><a href="version4.html">Version 4</a>：<span style="color:#ff0000">プロジェクションオブジェクト（OpenGLProjection）を導入する</span></li>
+  <li><a href="version5.html">Version 5</a>：<span style="color:#ff0000">JOGL（OpenGL）のためのMVC（モデル・ビュー・コントローラ）を導入する</span></li>
+  <li><a href="version6.html">Version 6</a>：<span style="color:#ff0000">ビューにXYZ軸の回転角を導入する</span></li>
+  <li><a href="version7.html">Version 7</a>：<span style="color:#ff0000">コントローラにマウス関連リスナーを実装し、マウスでドラゴンをグリグリ回転できるようにする</span></li>
+  <li><a href="version8.html">Version 8</a>：<span style="color:#ff0000">コントローラにキーリスナーを実装し、キーボードから回転・拡大・縮小・リセットができるようにする</span></li>
+  <li><a href="version9.html">Version 9</a>：<span style="color:#ff0000">MVC4JOGLをパッケージ化（mvc4jogl*.jarとしてライブラリ化）し、それを使って再構成する</span></li>
+</ul>
+<p>ここまでのプログラミング過程とリファクタリング過程を経ると、ドラゴンに限らず、以下に示すような様々なオブジェクト（スズメバチ・うさぎ・ペンギン・鬼・赤ちゃん）なども、各々のオブジェクトに固有なところをプログラミング（差分プログラミングによって最小限のプログラムを作成して追加）するだけで扱えるようになります。どうぞ、チャレンジしてみてください。</p>
+<div class="belt">
+<h3><a name="WaspResult">スズメバチ完成図</a>（実行結果）</h3>
+</div>
+<blockquote><a href="http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/VisualWorks/Wasp/wasp.txt">wasp.txt</a><br><img src="images/WaspResult.png" width="514" height="536" alt="WaspResult"><br>
+　　　　　視点 = [-5.5852450791872 , 3.07847342734 , 15.794105252496]<br>
+　　　　注視点 = [0.19825005531311 , 1.8530999422073 , -0.63795006275177]<br>
+上方向ベクトル = [0.070077999093727 , 0.99630606032682 , -0.049631725731267]<br>
+　　　　視界角 = 41.480099231656</blockquote>
+<div class="belt">
+<h3><a name="BunnyResult">うさぎ完成図</a>（実行結果）</h3>
+</div>
+<blockquote><a href="http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/VisualWorks/Bunny/bunny.ply">bunny.ply</a><br><img src="images/BunnyResult.png" width="514" height="536" alt="BunnyResult"><br>
+　　　　　視点 = [-0.30825471672548 , 0.39844313704211 , 0.70839046941231]<br>
+　　　　注視点 = [-0.016840398311615 , 0.11015420407057 , -0.001536950469017]<br>
+上方向ベクトル = [-0.0045881129193642 , 0.92585306602325 , -0.37785585790772]<br>
+　　　　視界角 = 15.879423698244</blockquote>
+<div class="belt">
+<h3><a name="PenguinResult">ペンギン完成図</a>（実行結果）</h3>
+</div>
+<blockquote><a href="http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/VisualWorks/Penguin/penguin.txt">penguin.txt</a><br><img src="images/PenguinResult.png" width="514" height="536" alt="PenguinResult"><br>
+　　　　　視点 = [-6.6153435525924 , 3.5413918991617 , 27.440373330962]<br>
+　　　　注視点 = [0.070155, 0.108575, 0.056235]<br>
+上方向ベクトル = [0.03950581341181, 0.99260439594225, -0.11478590446043]<br>
+　　　　視界角 = 13.527497808711</blockquote>
+<div class="belt">
+<h3><a name="OniResult">鬼完成図</a>（実行結果）</h3>
+</div>
+<blockquote><a href="http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/VisualWorks/Oni/oni.txt">oni.txt</a><br><img src="images/OniResult.png" width="514" height="536" alt="OniResult"><br>
+　　　　　視点 = [-6.6153435525924 , 3.5413918991617 , 27.440373330962]<br>
+　　　　注視点 = [-0.056150078773499 , 0.022249937057495 , -2.1525999903679]<br>
+上方向ベクトル = [0.03835909829153 , 0.99323407243554 , -0.10961139051838]<br>
+　　　　視界角 = 19.221287002173</blockquote>
+<div class="belt">
+<h3><a name="BabyResult">赤ちゃん完成図</a>（実行結果）</h3>
+</div>
+<blockquote><a href="http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/VisualWorks/Baby/baby.txt">baby.txt</a><br><img src="images/BabyResult.png" width="514" height="536" alt="BabyResult"><br>
+　　　　　視点 = [-6.6153435525924 , 3.5413918991617 , 27.440373330962]<br>
+　　　　注視点 = [0.0 , 0.14168989658356 , 0.18842494487762]<br>
+上方向ベクトル = [0.039485481935453 , 0.99266691863474 , -0.11425097533293]<br>
+　　　　視界角 = 13.079457895221</blockquote>
+<hr>
+<p><a href="../Lectures/index-j.html#DragonProgrammingProcess">←</a> <a href="index-j.html">↑</a> <a href="version0.html">→</a></p>
+<hr>
+<div class="right-small">Updated: 2019/12/27 (Created: 2010/11/11) <a href="http://www.kyoto-su.ac.jp/"><img class="borderless" src="http://www.cc.kyoto-su.ac.jp/~atsushi/thumbnails/KSU.jpg" width="115" height="30" alt="KSU"></a> <a href="http://www.cc.kyoto-su.ac.jp/~atsushi/"><img class="borderless" src="http://www.cc.kyoto-su.ac.jp/~atsushi/thumbnails/AokiHanko.jpg" width="32" height="32" alt="AokiHanko"></a></div>
+</body>
+</html>

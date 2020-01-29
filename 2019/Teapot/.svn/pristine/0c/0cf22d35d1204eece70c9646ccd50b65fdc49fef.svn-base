@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"teapot"},{"l":"すべてのパッケージ","url":"allpackages-index.html"}]

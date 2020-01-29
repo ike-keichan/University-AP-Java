@@ -1,0 +1,535 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="keywords" content="Aoki,Atsushi,Smalltalk,Smalltalker,Program,Programmer,Object,Oriented,Programming">
+<meta name="description" content="青木淳（あおきあつし）のホームページ">
+<meta name="author" content="AOKI Atsushi">
+<link rev="made" href="mailto:atsushi@cc.kyoto-su.ac.jp">
+<link rel="index" href="index-j.html">
+<link rel="shortcut icon" href="http://www.cc.kyoto-su.ac.jp/~atsushi/icons/aoki.ico">
+<style type="text/css">
+<!--
+body {
+  background-color : #ffffff;
+  margin : 20px;
+  padding : 10px;
+  font-family : serif;
+  font-size : 10pt;
+}
+a {
+  text-decoration : underline;
+  color : #000000;
+}
+a:link {
+  background-color : #ffddbb;
+}
+a:visited {
+  background-color : #ccffcc;
+}
+a:hover {
+  background-color : #dddddd;
+}
+a:active {
+  background-color : #dddddd;
+}
+div.belt {
+  background-color : #eeeeee;
+  padding : 0px 4px;
+}
+div.belt-yellow {
+  background-color : #ffffcc;
+  padding : 0px 4px;
+}
+div.belt-blue {
+  background-color : #ddeeff;
+  padding : 0px 4px;
+}
+div.belt-green {
+  background-color : #e0f0e0;
+  padding : 0px 4px;
+}
+div.belt-pink {
+  background-color : #ffeedd;
+  padding : 0px 4px;
+}
+div.right-small {
+  text-align : right;
+  font-size : 8pt;
+}
+img.border {
+  border-width : 1px;
+  border-color : #000000;
+  vertical-align : middle;
+}
+img.borderless {
+  border-width : 0px;
+  vertical-align : middle;
+}
+p.belt {
+  background-color : #ffeedd;
+  padding : 4px 8px;
+}
+p.belt-blue {
+  background-color : #ddeeff;
+  padding : 4px 8px;
+}
+pre.belt {
+  background-color : #ddeeff;
+  padding : 4px 8px;
+}
+pre.belt-yellow {
+  background-color : #ffffcc;
+  padding : 4px 8px;
+}
+table {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  font-family : serif;
+  font-size : 10pt;
+}
+table.profile {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  font-family : serif;
+  font-size : 10pt;
+  margin-top : 8px;
+  margin-left : 8px;
+  margin-right : 8px;
+  margin-bottom : 8px;
+}
+table.belt {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  background-color : #ffeedd;
+  padding : 0px 0px;
+  width : 100%;
+}
+table.content {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 2px 4px;
+}
+table.font-fixed {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 2px 4px;
+  font-family : monospace;
+}
+table.nest {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 0px 0px;
+}
+td {
+  padding : 0px 0px;
+  vertical-align : middle;
+}
+td.center {
+  text-align : center;
+}
+td.center-half {
+  text-align : center;
+  width : 50%;
+  font-size : 8pt;
+}
+td.center-small {
+  text-align : center;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.center-small-nopadding {
+  text-align : center;
+  font-size : 8pt;
+  padding : 0px 0px;
+}
+td.center-white {
+  text-align : center;
+  background-color : #ffffff;
+}
+td.center-small-white {
+  text-align : center;
+  font-size : 8pt;
+  background-color : #ffffff;
+}
+td.center-border1 {
+  text-align : center;
+  vertical-align : middle;
+  empty-cells : show;
+  border-style : solid;
+  border-width : 1px;
+  border-color : #ffc080;
+  width : 22px;
+  height : 22px;
+}
+td.left-small {
+  text-align : left;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.left-small-white {
+  text-align : left;
+  font-size : 8pt;
+  padding : 0px 4px;
+  background-color : #ffffff;
+}
+td.right-small {
+  text-align : right;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.right-small-white {
+  text-align : right;
+  font-size : 8pt;
+  padding : 0px 4px;
+  background-color : #ffffff;
+}
+th {
+  padding : 0px 0px;
+  vertical-align : middle;
+}
+#menu {
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+  height: 32px;
+}
+#menu ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-align: center;
+  clear: both;
+}
+#menu li {
+  margin: 0px 5px 0px 0px;
+  padding: 0px;
+  float: left;
+}
+#menu a {
+  display: block;
+  padding: 2px 4px;
+  text-decoration: none;
+  margin: 0px;
+  font-weight: bold;
+  background: #FFFFFF;
+  color: #333333;
+  border: 1px solid #666666;
+}
+#menu a:hover {
+  display: block;
+  padding: 2px 4px;
+  border-bottom: 1px solid #000000;
+  text-decoration: none;
+  background: #FFCC66;
+}
+#menu .current {
+  background-color: #F45F57;
+  font-weight: bold;
+  color: #FFFFFF;
+  border: 1px solid #333333;
+}
+-->
+</style>
+<!-- SyntaxHighlighter BEGIN -->
+<link href="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/styles/shCore.css" rel="stylesheet" type="text/css">
+<link href="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/styles/shThemeEclipse.css" rel="stylesheet" type="text/css">
+<script src="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/scripts/shCore.js" type="text/javascript"></script>
+<script src="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/scripts/shBrushJava.js" type="text/javascript"></script>
+<script src="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/scripts/shBrushPlain.js" type="text/javascript"></script>
+<script src="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/scripts/shBrushPython.js" type="text/javascript"></script>
+<script type="text/javascript"> 
+<!--
+SyntaxHighlighter.config.bloggerMode = true;
+SyntaxHighlighter.config.clipboardSwf = 'http://alexgorbatchev.com/pub/sh/current/scripts/clipboard.swf';
+SyntaxHighlighter.all();
+SyntaxHighlighter.defaults['auto-links'] = false;
+-->
+</script>
+<!-- SyntaxHighlighter END -->
+<title>Version 0：バージョンを追いながらプログラミングするための準備</title>
+</head>
+<body>
+<div id="menu">
+<ul>
+  <li><a href="../Lectures/index-j.html#TryJOGL">Javaプログラム集</a></li>
+  <li><a href="index-j.html">TryJODL</a></li>
+  <li><a href="version0.html" class="current">0</a></li>
+  <li><a href="version1.html">1</a></li>
+  <li><a href="version2.html">2</a></li>
+  <li><a href="version3.html">3</a></li>
+  <li><a href="version4.html">4</a></li>
+  <li><a href="version5.html">5</a></li>
+  <li><a href="version6.html">6</a></li>
+  <li><a href="version7.html">7</a></li>
+  <li><a href="version8.html">8</a></li>
+  <li><a href="version9.html">9</a></li>
+</ul>
+</div>
+<hr>
+<h2>Version 0：バージョンを追いながらプログラミングするための準備</h2>
+<p>今回は、最初のバージョン（Version 0）ということで、これからのプログラミング（バージョンを追いながら作ってゆくため）の準備を行いましょう。</p>
+<div class="belt">
+<h3><a name="BaseArchive">ベースとなるアーカイブをダウンロードして展開</a></h3>
+</div>
+<p>まず、元（基：ベース）となるものを入手してください。macOSのターミナルを開き、リポジトリからチェックアウトするのが簡便です。</p>
+<blockquote>
+<pre>
+$ <span style="color:#ff0000">mkdir ~/AP/Java/TryJOGL/</span>
+$ <span style="color:#ff0000">cd ~/AP/Java/TryJOGL/</span>
+$ <span style="color:#ff0000">svn checkout --username student http://bluetree.kyoto-su.ac.jp/repositories/AP/Java/TryJOGL/TryJOGL_Programming_Process/</span>
+A    TryJOGL_Programming_Process/TryJOGL.app
+A    TryJOGL_Programming_Process/TryJOGL.app/Contents
+A    TryJOGL_Programming_Process/TryJOGL.app/Contents/MacOS
+A    TryJOGL_Programming_Process/TryJOGL.app/Contents/Resources
+A    TryJOGL_Programming_Process/TryJOGL.app/Contents/Resources/Scripts
+A    TryJOGL_Programming_Process/TryJOGL.app/Contents/Resources/description.rtfd
+A    TryJOGL_Programming_Process/tryjogl
+A    TryJOGL_Programming_Process/Makefile
+A    TryJOGL_Programming_Process/build.xml
+A    TryJOGL_Programming_Process/PrepareJavaNativeInterfaceLibraries.sh
+A    TryJOGL_Programming_Process/TryJOGL.app/Contents/Info.plist
+A    TryJOGL_Programming_Process/TryJOGL.app/Contents/MacOS/applet
+A    TryJOGL_Programming_Process/TryJOGL.app/Contents/PkgInfo
+A    TryJOGL_Programming_Process/TryJOGL.app/Contents/Resources/JavaApp.icns
+A    TryJOGL_Programming_Process/TryJOGL.app/Contents/Resources/Scripts/main.scpt
+A    TryJOGL_Programming_Process/TryJOGL.app/Contents/Resources/applet.icns
+A    TryJOGL_Programming_Process/TryJOGL.app/Contents/Resources/applet.rsrc
+A    TryJOGL_Programming_Process/TryJOGL.app/Contents/Resources/description.rtfd/TXT.rtf
+A    TryJOGL_Programming_Process/gluegen-rt-natives-macosx-universal.jar
+A    TryJOGL_Programming_Process/gluegen-rt.jar
+A    TryJOGL_Programming_Process/jogl-all-natives-macosx-universal.jar
+A    TryJOGL_Programming_Process/jogl-all.jar
+A    TryJOGL_Programming_Process/tryjogl/Example.java
+A    TryJOGL_Programming_Process/tryjogl.mf
+Checked out revision 2671.
+$ <span style="color:#ff0000">open TryJOGL_Programming_Process</span>
+</pre>
+</blockquote>
+<blockquote><img src="images/version_0_1.png" width="301" height="214" alt="version_0_1"></blockquote>
+<blockquote>
+<pre>
+$ <span style="color:#ff0000">tree</span>
+./ (~/AP/Java/TryJOGL/TryJOGL_Programming_Process/)
+|-- Makefile
+|-- PrepareJavaNativeInterfaceLibraries.sh
+|-- TryJOGL.app/
+|-- |-- Contents/
+|-- |-- |-- Info.plist
+|-- |-- |-- MacOS/
+|-- |-- |-- |-- applet
+|-- |-- |-- PkgInfo
+|-- |-- |-- Resources/
+|-- |-- |-- |-- JavaApp.icns
+|-- |-- |-- |-- Scripts/
+|-- |-- |-- |-- |-- main.scpt
+|-- |-- |-- |-- applet.icns
+|-- |-- |-- |-- applet.rsrc
+|-- |-- |-- |-- description.rtfd/
+|-- |-- |-- |-- |-- TXT.rtf
+|-- build.xml
+|-- gluegen-rt-natives-macosx-universal.jar
+|-- gluegen-rt.jar
+|-- jogl-all-natives-macosx-universal.jar
+|-- jogl-all.jar
+|-- tryjogl.mf
+|-- tryjogl/
+|-- |-- Example.java
+$ 
+</pre>
+</blockquote>
+<p>展開して得られたファイル群の若干の説明をします。まず、「build.xml」と「Makefile」がJavaプログラムをビルドするためのxmlファイルとメイクファイルです。</p>
+<p>次に、4つのJARファイル「gluegen-rt-natives-macosx-universal.jar」「gluegen-rt.jar」「jogl-all-natives-macosx-universal.jar」「jogl-all.jar」があります。これらがJavaプログラミングで3次元グラフィックスを行う際に、最低限必要なJOGL（Java OpenGL：Java Binding for the OpenGL API）になります。以下にJOGLに関する簡単な<a href="#memo">備忘録</a>（稚拙なメモランダムですけれども）を載せて（恥ずかしさも省みず引用して）おきます。</p>
+<blockquote><blockquote><blockquote>
+<div class="belt-green"><pre>
+<span style="font-size: x-small;color:#5f5f5f;">【<a name="memo">メモ</a>】
+
+JOGLの最新のバージョンは、以下のjogampのサイトからダウンロードできる。
+<a href="http://jogamp.org/">http://jogamp.org/</a>
+
+JOGLのライセンスはBSDライセンスのオープンソースである。
+新旧すべてのバージョンのプログラム（ソースコード）が、
+デプロイメントとして公開されている。
+
+http://jogamp.org/deployment/
+    デプロイメント（配備｜活用｜運用）
+    |-- リリース（頒布）
+    |-- |-- インストール（設置）
+    |-- |-- |-- アクティベート（有効化）
+    |-- |-- |-- ディアクティベート（無効化）
+    |-- |-- アンインストール（抹消）
+    |-- アップデート（更新）
+    |-- サポート中止（終了）
+
+頒布版では「gluegen_921-joal_647-jogl_1485-jocl_1128/」が最新（2019年12月31日現在）である
+<a href="https://jogamp.org/deployment/archive/master/">https://jogamp.org/deployment/archive/master/</a>
+上記のサイトから「<a href="https://jogamp.org/deployment/archive/master/gluegen_921-joal_647-jogl_1485-jocl_1128/archive/">gluegen_921-joal_647-jogl_1485-jocl_1128/archive/</a>」の中をブラウズする。
+そして、以下のアーカイブ（7zファイル）をダウンロードする。
+jogamp-all-platforms.7z
+
+開発版では「gluegen-b927-927/」と「jogl-b1489-1488/」が最新（2020年01月02日現在）である。
+<a href="https://jogamp.org/deployment/autobuilds/master/">https://jogamp.org/deployment/autobuilds/master/</a>
+上記のサイトから「<a href="https://jogamp.org/deployment/autobuilds/master/gluegen-b927-927/">gluegen-b927-927/</a>」と「<a href="https://jogamp.org/deployment/autobuilds/master/jogl-b1488-1488/">jogl-b1488-1488/</a>」のそれぞれの中をブラウズする。
+そして、以下のアーカイブ（7zファイル）をダウンロードする。
+gluegen-2.4-b927-20200102-macosx-universal.7z
+jogl-2.4-b1488-20200102-macosx-universal.7z
+
+セットアップ法などは、以下のページに丁寧に説明されている。
+<a href="https://jogamp.org/gluegen/www/">https://jogamp.org/gluegen/www/</a>
+<a href="https://jogamp.org/jogl/www/">https://jogamp.org/jogl/www/</a>
+それらを要約すると、以下のJARファイル群が関係していることがわかる。
+１）gluegen-rt-natives-macosx-universal.jar
+２）gluegen-rt.jar
+３）jogl-all-natives-macosx-universal.jar
+４）jogl-all.jar
+これらは、上述のアーカイブ（7zファイル）を展開して得られる「jar」ディレクトリの中に収録されている。
+ネイティブなJARファイルを選ぶ際には、必ず使用環境のOSのものにすること。
+
+上記の4つのJARファイルを利用する際、
+まず、２）と４）にclasspathを通す必要がある。
+そして、１）と３）を実行環境下に展開しなければならない。
+
+注意としては、
+<a href="https://jogamp.org/deployment/v2.2.4/archive/">JOGL v2.2.x</a>において「javax.media.opengl.*」をインポートしていたところを、
+<a href="https://jogamp.org/deployment/v2.3.2/archive/">JOGL v2.3.x</a>以降では「com.jogamp.opengl.*」にインポート先を変更しなければならない。
+Oracle（オラクル）の<a href="https://www.oracle.com/downloads/licenses/binary-code-license.html">バイナリコードライセンス</a>（BCL：Oracle Binary Code License）にそぐわなくなったからであろう。
+そのため、パッケージというか、名前空間が、Java拡張という位置付けからサードパーティ製へと格落ちした次第と思われる。
+
+以下は蛇足であるが…、
+上述の4つのJARファイルを、MVCデザインパターンと一緒に、内包した2つのJARファイルを用意しておいた。
+５）mvc4jogl-natives-macosx-universal.jar
+６）mvc4jogl.jar
+これら「MVC4JOGL」を用いると、１）から４）までの4つのJARファイルは一切不要となる。
+利用時には、まず、６）にclasspathを通す必要がある。
+そして、５）を実行環境下に適切に展開するために、以下のシェルスクリプトファイルも用意しておいた。
+７）PrepareJavaNativeInterfaceLibraries.sh
+このシェルスクリプトは、ビルド（makeやantを使用）する時に、適切に起動されるようになっている。
+追々に利用することになるであろう。
+
+さらに蛇足となるが…、
+macOS 10.15.x Catalinaおよび10.14.x Mojaveにおいて、正式リリース版である<a href="https://jogamp.org/deployment/v2.2.4/archive/">JOGL v2.2.x</a>も<a href="https://jogamp.org/deployment/v2.3.2/archive/">JOGL v2.3.x</a>も動作しない。
+これらのバージョンは、macOS 10.13.x High Sierraや10.12.x Sierraでは（そして、それ以前のmacOSでも）動作していた。
+おそらくMojaveから標準となった<a href="https://ja.wikipedia.org/wiki/Metal_(API)">Metal</a>（メタル by Apple：アップル製）が関係していると思われる。
+<a href="https://jogamp.org/wiki/index.php/SW_Tracking_Report_Objectives_for_the_release_2.4.0">JOGL v2.4.x</a>が開発中であり、<a href="https://ja.wikipedia.org/wiki/Vulkan_(API)">Vulkan</a>（ヴァルカン by Khronos Group：クロノスグループ製）対応がうたわれている。
+さぞや対応が難しかろう、<a href="https://ja.wikipedia.org/wiki/Direct3D">Direct 3D</a>（ダイレクト3D by Microsoft：マイクロソフト製）との関係もあるので。
+macOSのCatalinaやMojaveで、警告（warning）が出るものの、かろうじて動作するバージョンは、
+頒布版の「<a href="https://jogamp.org/deployment/archive/master/gluegen_916-joal_642-jogl_1483-jocl_1122/archive/">gluegen_916-joal_642-jogl_1483-jocl_1122/archive/</a>（2019年04月10日）」と
+開発版の「<a href="https://jogamp.org/deployment/autobuilds/master/gluegen-b916-916/">gluegen-b916-916/</a>（2019年04月10日）」と「<a href="https://jogamp.org/deployment/autobuilds/master/jogl-b1483-1483/">jogl-b1483-1483/</a>（2019年04月10日）」である。
+これら以降のビルドであれば、なんとか動作する、警告（warning）も出ずに。
+しかし、シェーディングとライティングに問題（不具合）があるようで、いまだ正常なレンダリングができない。
+今後のビルドに貢献（協力）しながら（見守って）ゆくしかなかろう、ふぅ〜。
+ふぅ〜と息をついていたら、なんと！次のビルドが出ているではないかぁーぃ。
+「<a href="https://jogamp.org/deployment/autobuilds/master/gluegen-b928-928/">gluegen-b928-928/</a>」
+「<a href="https://jogamp.org/deployment/autobuilds/master/jogl-b1489-1489/">jogl-b1489-1489/</a>」
+年始だというのに働いて（稼いで）くれているなぁ〜。
+バグ報告とパッチ寄贈をする甲斐（効果・値打ち）もあるというものでしょう。
+
+--- 靑木惇（2020年01月02日22時20分）</span>
+</pre></div>
+</blockquote></blockquote></blockquote>
+<p>そして、「PrepareJavaNativeInterfaceLibraries.sh」はシェルスクリプトファイルです。macOSのためのネイティブなjarファイル2つ（gluegen-rt-natives-macosx-universal.jarとjogl-all-natives-macosx-universal.jar）を展開して、dylibファイル群を作り出します。dylibはJava Native Interface（JNI）のライブラリであり、C言語で作られているOpenGLプログラムをコンパイルして実際のCPU上で動作可能になっているコード（ネイティブコード）とJavaプログラムを連携させるためのものです。</p>
+<p>さらに、「tryjogl」のディレクトリがJavaのパッケージを表し、その中に「Example.java」というJavaのソースプログラムがあります。今後、この「Example.java」を編集する（いじってゆく）ことになります。「TryJOGL.app」がJavaプログラムをビルドしてアプリケーションに仕立て上げるためのものであり、「tryjogl.mf」がtryjoglパッケージをjarファイルにする際に使用するマニフェストファイルになります。</p>
+<p>さぁ！それでは、「tryjogl」ディレクトリ（パッケージ）にある「Example.java」の中身を、以下のソースコードと同じになるように編集してください。編集するところをハイライトで表しておきます。Exampleクラスのインスタンスを生成して、Exampleのコンストラクタを動かすだけのプログラムになります。</p>
+<div class="belt">
+<h3><a name="SourceCode">ソースコード</a>（Version 0）</h3>
+</div>
+<blockquote>
+<!-- python -c 'print(",".join([str(x) for x in range(0, 0)]))' -->
+<pre class="brush: java; toolbar: false; first-line: 1; highlight: [9,10,11,12,13,14,15,16,17, 27];">
+package tryjogl;
+
+/**
+ * JOGL（Java bindings for OpenGL）の例題プログラムである。
+ * OpenGLを使ったJavaによる三次元グラフィックスの初歩的な練習になる。
+ */
+public class Example extends Object
+{
+    /**
+     * Exampleのコンストラクタである。
+     */
+    public Example()
+    {
+        System.out.println("Example");
+
+        return;
+    }
+
+    /**
+     * 針金細工のティーポット（Wire Teapot）を描くOpenGLのウィンドウを開く。
+     * @param arguments コマンドの引数列（文字列の配列）
+     */
+    public static void main(String[] arguments)
+    {
+        System.out.println("main");
+
+        new Example();
+
+        return;
+    }
+}
+</pre>
+</blockquote>
+<div class="belt">
+<h3><a name="BuildAndResult">ビルド＆実行結果</a>（Version 0）</h3>
+</div>
+<p>では、makeからantを動かし、dylibの準備をし（prepare）、コンパイルして（compile）、jarファイルを作り（jar）、ここまでがビルド（all）、そして、実行して（test）みましょう。ちゃんと「main」「Example」と出力されます。</p>
+<blockquote>
+<pre>
+$ <span style="color:#ff0000">make test</span>
+env LC_ALL=ja_JP.UTF-8 ant test
+Picked up _JAVA_OPTIONS: -Dfile.encoding=UTF-8
+Buildfile: /Users/aoki/Developments/Languages/Java/TryJOGL/Version0/build.xml
+
+prepare:
+    [mkdir] Created dir: /Users/aoki/Developments/Languages/Java/TryJOGL/Version0/Classes
+     [exec] Picked up _JAVA_OPTIONS: -Dfile.encoding=UTF-8
+     [exec]  META-INF/MANIFEST.MFが展開されました
+     [exec]  jogamp/nativetag/common/macosx/universal/TAG.classが展開されました
+     [exec]  natives/macosx-universal/libgluegen-rt.dylibが展開されました
+     [exec] Picked up _JAVA_OPTIONS: -Dfile.encoding=UTF-8
+     [exec]  META-INF/MANIFEST.MFが展開されました
+     [exec]  jogamp/nativetag/opengl/macosx/universal/TAG.classが展開されました
+     [exec]  natives/macosx-universal/libjogl_desktop.dylibが展開されました
+     [exec]  natives/macosx-universal/libjogl_mobile.dylibが展開されました
+     [exec]  natives/macosx-universal/libnativewindow_awt.dylibが展開されました
+     [exec]  natives/macosx-universal/libnativewindow_macosx.dylibが展開されました
+     [exec]  natives/macosx-universal/libnewt.dylibが展開されました
+     [exec] 2019年 12月19日 木曜日 13時00分48秒 JST
+
+compile:
+    [javac] Compiling 1 source file to /Users/aoki/Developments/Languages/Java/TryJOGL/Version0/Classes
+    [javac] Picked up _JAVA_OPTIONS: -Dfile.encoding=UTF-8
+     [exec] 2019年 12月19日 木曜日 13時00分50秒 JST
+
+jar:
+      [jar] Building jar: /Users/aoki/Developments/Languages/Java/TryJOGL/Version0/tryjogl.jar
+      [jar] Building jar: /Users/aoki/Developments/Languages/Java/TryJOGL/Version0/tryjogl-natives-macosx-universal.jar
+     [exec] 2019年 12月19日 木曜日 13時00分51秒 JST
+
+all:
+     [exec] 2019年 12月19日 木曜日 13時00分51秒 JST
+
+test:
+     [exec] Picked up _JAVA_OPTIONS: -Dfile.encoding=UTF-8
+     [exec] main
+     [exec] Example
+     [exec] 2019年 12月19日 木曜日 13時00分51秒 JST
+
+BUILD SUCCESSFUL
+Total time: 3 seconds
+$ 
+</pre>
+</blockquote>
+<hr>
+<p><a href="index-j.html">←</a> <a href="version0.html">↑</a> <a href="version1.html">→</a></p>
+<hr>
+<div class="right-small">Updated: 2020/01/03 (Created: 2010/11/11) <a href="http://www.kyoto-su.ac.jp/"><img class="borderless" src="http://www.cc.kyoto-su.ac.jp/~atsushi/thumbnails/KSU.jpg" width="115" height="30" alt="KSU"></a> <a href="http://www.cc.kyoto-su.ac.jp/~atsushi/"><img class="borderless" src="http://www.cc.kyoto-su.ac.jp/~atsushi/thumbnails/AokiHanko.jpg" width="32" height="32" alt="AokiHanko"></a></div>
+</body>
+</html>

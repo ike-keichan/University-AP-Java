@@ -1,0 +1,753 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="keywords" content="Aoki,Atsushi,Smalltalk,Smalltalker,Program,Programmer,Object,Oriented,Programming">
+<meta name="description" content="青木淳（あおきあつし）のホームページ">
+<meta name="author" content="AOKI Atsushi">
+<link rev="made" href="mailto:atsushi@cc.kyoto-su.ac.jp">
+<link rel="index" href="index-j.html">
+<link rel="shortcut icon" href="http://www.cc.kyoto-su.ac.jp/~atsushi/icons/aoki.ico">
+<style type="text/css">
+<!--
+body {
+  background-color : #ffffff;
+  margin : 20px;
+  padding : 10px;
+  font-family : serif;
+  font-size : 10pt;
+}
+a {
+  text-decoration : underline;
+  color : #000000;
+}
+a:link {
+  background-color : #ffddbb;
+}
+a:visited {
+  background-color : #ccffcc;
+}
+a:hover {
+  background-color : #dddddd;
+}
+a:active {
+  background-color : #dddddd;
+}
+div.belt {
+  background-color : #eeeeee;
+  padding : 0px 4px;
+}
+div.belt-yellow {
+  background-color : #ffffcc;
+  padding : 0px 4px;
+}
+div.belt-blue {
+  background-color : #ddeeff;
+  padding : 0px 4px;
+}
+div.belt-pink {
+  background-color : #ffeedd;
+  padding : 0px 4px;
+}
+div.right-small {
+  text-align : right;
+  font-size : 8pt;
+}
+img.border {
+  border-width : 1px;
+  border-color : #000000;
+  vertical-align : middle;
+}
+img.borderless {
+  border-width : 0px;
+  vertical-align : middle;
+}
+p.belt {
+  background-color : #ffeedd;
+  padding : 4px 8px;
+}
+p.belt-blue {
+  background-color : #ddeeff;
+  padding : 4px 8px;
+}
+pre.belt {
+  background-color : #ddeeff;
+  padding : 4px 8px;
+}
+pre.belt-yellow {
+  background-color : #ffffcc;
+  padding : 4px 8px;
+}
+table {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  font-family : serif;
+  font-size : 10pt;
+}
+table.profile {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  font-family : serif;
+  font-size : 10pt;
+  margin-top : 8px;
+  margin-left : 8px;
+  margin-right : 8px;
+  margin-bottom : 8px;
+}
+table.belt {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  background-color : #ffeedd;
+  padding : 0px 0px;
+  width : 100%;
+}
+table.content {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 2px 4px;
+}
+table.font-fixed {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 2px 4px;
+  font-family : monospace;
+}
+table.nest {
+  border-style : solid;
+  border-width : 0px;
+  border-color : #000000;
+  padding : 0px 0px;
+}
+td {
+  padding : 0px 0px;
+  vertical-align : middle;
+}
+td.center {
+  text-align : center;
+}
+td.center-half {
+  text-align : center;
+  width : 50%;
+  font-size : 8pt;
+}
+td.center-small {
+  text-align : center;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.center-small-nopadding {
+  text-align : center;
+  font-size : 8pt;
+  padding : 0px 0px;
+}
+td.center-white {
+  text-align : center;
+  background-color : #ffffff;
+}
+td.center-small-white {
+  text-align : center;
+  font-size : 8pt;
+  background-color : #ffffff;
+}
+td.center-border1 {
+  text-align : center;
+  vertical-align : middle;
+  empty-cells : show;
+  border-style : solid;
+  border-width : 1px;
+  border-color : #ffc080;
+  width : 22px;
+  height : 22px;
+}
+td.left-small {
+  text-align : left;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.left-small-white {
+  text-align : left;
+  font-size : 8pt;
+  padding : 0px 4px;
+  background-color : #ffffff;
+}
+td.right-small {
+  text-align : right;
+  font-size : 8pt;
+  padding : 0px 4px;
+}
+td.right-small-white {
+  text-align : right;
+  font-size : 8pt;
+  padding : 0px 4px;
+  background-color : #ffffff;
+}
+th {
+  padding : 0px 0px;
+  vertical-align : middle;
+}
+#menu {
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+  height: 32px;
+}
+#menu ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-align: center;
+  clear: both;
+}
+#menu li {
+  margin: 0px 5px 0px 0px;
+  padding: 0px;
+  float: left;
+}
+#menu a {
+  display: block;
+  padding: 2px 4px;
+  text-decoration: none;
+  margin: 0px;
+  font-weight: bold;
+  background: #FFFFFF;
+  color: #333333;
+  border: 1px solid #666666;
+}
+#menu a:hover {
+  display: block;
+  padding: 2px 4px;
+  border-bottom: 1px solid #000000;
+  text-decoration: none;
+  background: #FFCC66;
+}
+#menu .current {
+  background-color: #F45F57;
+  font-weight: bold;
+  color: #FFFFFF;
+  border: 1px solid #333333;
+}
+-->
+</style>
+<!-- SyntaxHighlighter BEGIN -->
+<link href="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/styles/shCore.css" rel="stylesheet" type="text/css">
+<link href="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/styles/shThemeEclipse.css" rel="stylesheet" type="text/css">
+<script src="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/scripts/shCore.js" type="text/javascript"></script>
+<script src="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/scripts/shBrushJava.js" type="text/javascript"></script>
+<script src="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/scripts/shBrushPlain.js" type="text/javascript"></script>
+<script src="http://www.cc.kyoto-su.ac.jp/~atsushi/SyntaxHighlighter/scripts/shBrushPython.js" type="text/javascript"></script>
+<script type="text/javascript"> 
+<!--
+SyntaxHighlighter.config.bloggerMode = true;
+SyntaxHighlighter.config.clipboardSwf = 'http://alexgorbatchev.com/pub/sh/current/scripts/clipboard.swf';
+SyntaxHighlighter.all();
+SyntaxHighlighter.defaults['auto-links'] = false;
+-->
+</script>
+<!-- SyntaxHighlighter END -->
+<title>ティーポット</title>
+</head>
+<body>
+<div id="menu">
+<ul>
+  <li><a href="../Lectures/index-j.html#Teapot">Javaプログラム集</a></li>
+  <li><a href="index-j.html" class="current">ティーポット</a></li>
+</ul>
+</div>
+<hr>
+<h2>ティーポット</h2>
+<p>ティーポットをソリッドとワイヤーフレームの両方で描画することにチャレンジしましょう。以下の完成図のように、XYZ軸を赤緑青の線で描き、その中央にティーポットを描き出します。</p>
+<div class="belt">
+<h3><a name="Completion">完成図</a></h3>
+</div>
+<blockquote><img src="images/TeapotResult.png" width="514" height="536" alt="TeapotResult"><br>
+　　　　　視点 = [10 , 10 , 10]<br>
+　　　　注視点 = [0 , 0 , 0]<br>
+上方向ベクトル = [0 , 1 , 0]<br>
+　　　　視界角 = 15</blockquote>
+<div class="belt">
+<h3><a name="Checkout">チェックアウト</a></h3>
+</div>
+<p>そのために基（ベース）になるプログラムをリポジトリからチェックアウトして入手してください。</p>
+<blockquote>
+<pre>
+$ <span style="color:#ff0000">mkdir -p ~/AP/Java/Teapot/</span>
+$ <span style="color:#ff0000">cd ~/AP/Java/Teapot/</span>
+$ <span style="color:#ff0000">svn checkout --username student http://bluetree.kyoto-su.ac.jp/repositories/AP/Java/Teapot/Teapot_Problem/</span>
+A    Teapot_Problem/Teapot.app
+A    Teapot_Problem/Teapot.app/Contents
+A    Teapot_Problem/Teapot.app/Contents/MacOS
+A    Teapot_Problem/Teapot.app/Contents/Resources
+A    Teapot_Problem/Teapot.app/Contents/Resources/Scripts
+A    Teapot_Problem/Teapot.app/Contents/Resources/description.rtfd
+A    Teapot_Problem/teapot
+A    Teapot_Problem/Makefile
+A    Teapot_Problem/PrepareJavaNativeInterfaceLibraries.sh
+A    Teapot_Problem/Teapot.app/Contents/Info.plist
+A    Teapot_Problem/Teapot.app/Contents/MacOS/applet
+A    Teapot_Problem/Teapot.app/Contents/PkgInfo
+A    Teapot_Problem/Teapot.app/Contents/Resources/JavaApp.icns
+A    Teapot_Problem/Teapot.app/Contents/Resources/Scripts/main.scpt
+A    Teapot_Problem/Teapot.app/Contents/Resources/applet.icns
+A    Teapot_Problem/Teapot.app/Contents/Resources/applet.rsrc
+A    Teapot_Problem/Teapot.app/Contents/Resources/description.rtfd/TXT.rtf
+A    Teapot_Problem/build.xml
+A    Teapot_Problem/gluegen-rt-natives-macosx-universal.jar
+A    Teapot_Problem/gluegen-rt.jar
+A    Teapot_Problem/jogl-all-natives-macosx-universal.jar
+A    Teapot_Problem/jogl-all.jar
+A    Teapot_Problem/teapot/Example.java
+A    Teapot_Problem/teapot/Teapot.java
+A    Teapot_Problem/teapot.mf
+Checked out revision 2756.
+$ 
+</pre>
+</blockquote>
+<p>以下に「teapot」というパッケージを表しているディレクトリの中に収められた2つのプログラム「Teapot」と「Example」のソースコードを記しておきます。これらをよく読み、当該の「Teapot」の中のハイライトで「<span style="color:#ff0000">// 作成してください。</span>」と書かれている部分を作り、上記の完成図と同じになるようにしてください。なお、当該の「Example」において「<a href="../TryJOGL/index-j.html">TryJOGL</a>（OpenGLを用いてJavaで3次元グラフィックスをやってみよう）」の「<a href="../TryJOGL/version9.html#SourceCode">Example</a>」からの変更部分をハイライトで示しておきました。おきばりやしとくれやす！</p>
+<div class="belt">
+<h3><a name="Teapot">Teapot</a>（ソースプログラム）</h3>
+</div>
+<blockquote>
+<!-- python -c 'print(",".join([str(x) for x in range(0, 0)]))' -->
+<pre class="brush: java; toolbar: false; first-line: 1; highlight: [77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102];">
+package teapot;
+
+import com.jogamp.opengl.GL;
+import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.glu.GLU;
+import com.jogamp.opengl.util.gl2.GLUT;
+
+/**
+ * ティーポットをレンダリング（描画）する。
+ * XYZ軸に加えてティーポットをソリッドとワイヤーフレームの双方で描画する。
+ * 視界（視点・注視点・上方向ベクトル・視界角・近・遠）もティーポットが保持する。
+ */
+public class Teapot extends Object
+{
+    /**
+     * 視点を応答する。
+     * @return 視点座標（x,y,zの配列）
+     */
+    public double[] eyePoint()
+    {
+        return new double[] { 10.0d, 10.0d, 10.0d };
+    }
+
+    /**
+     * 注視点を応答する。
+     * @return 注視点座標（x,y,zの配列）
+     */
+    public double[] sightPoint()
+    {
+        return new double[] { 0.0d, 0.0d, 0.0d };
+    }
+
+    /**
+     * 上方向ベクトルを応答する。
+     * @return 上方向ベクトル（x,y,zの配列）
+     */
+    public double[] upVector()
+    {
+        return new double[] { 0.0d, 1.0d, 0.0d };
+    }
+
+    /**
+     * 視野角を応答する。
+     * @return 視野角
+     */
+    public double fovy()
+    {
+        return 15.0d;
+    }
+
+    /**
+     * 近を応答する。
+     * @return 近
+     */
+    public double near()
+    {
+        return 0.01d;
+    }
+
+    /**
+     * 遠を応答する。
+     * @return 遠
+     */
+    public double far()
+    {
+        return 100.0d;
+    }
+
+    /**
+     * レンダリング（描画）する。
+     * @param gl グラフィックライブラリ
+     * @param glu グラフィックライブラリユーテリティ
+     * @param glut グラフィックライブラリユーテリティツールキット
+     */
+    public void rendering(GL2 gl, GLU glu, GLUT glut)
+    {
+        // 作成してください。
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+        // …
+
+        return;
+    }
+
+    /**
+     * ウィンドウのタイトル（ラベル）を応答する。
+     * @return タイトル文字列
+     */
+    public String windowTitle()
+    {
+        return "Teapot";
+    }
+}
+</pre>
+</blockquote>
+<div class="belt">
+<h3><a name="Example">Example</a>（ソースプログラム）</h3>
+</div>
+<blockquote>
+<!-- python -c 'print(",".join([str(x) for x in range(0, 0)]))' -->
+<pre class="brush: java; toolbar: false; first-line: 1; highlight: [51,52,53,54, 123,124,125,126,127,128,129, 166,167];">
+package teapot;
+
+import com.jogamp.opengl.GL;
+import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.glu.GLU;
+import com.jogamp.opengl.util.gl2.GLUT;
+
+import com.jogamp.opengl.awt.GLCanvas;
+import com.jogamp.opengl.GLAutoDrawable;
+import com.jogamp.opengl.GLCapabilities;
+import com.jogamp.opengl.GLEventListener;
+import com.jogamp.opengl.GLProfile;
+
+import javax.swing.JFrame;
+import java.nio.FloatBuffer;
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+/**
+ * JOGL（Java bindings for OpenGL）の例題プログラムである。
+ * OpenGLを使ったJavaによる三次元グラフィックスの初歩的な練習になる。
+ */
+public class Example extends WindowAdapter implements GLEventListener
+{
+    /**
+     * GLオブジェクトを記憶するフィールドである。
+     */
+    protected GL2 gl;
+
+    /**
+     * GLユーティリティを記憶するフィールドである。
+     */
+    protected GLU glu;
+
+    /**
+     * GLユーティリティツールキットを記憶するフィールドである。
+     */
+    protected GLUT glut;
+
+    /**
+     * ビューの幅を記憶するフィールドである。
+     */
+    protected int width;
+
+    /**
+     * ビューの高さを記憶するフィールドである。
+     */
+    protected int height;
+
+    /**
+     * 描画オブジェクトを記憶するフィールドである。
+     */
+    protected Teapot displayObject;
+
+    /**
+     * Exampleのコンストラクタである。
+     */
+    public Example()
+    {
+        // System.out.println("Example");
+
+        // ティーポットのインスタンスを生成する。
+        this.displayObject = new Teapot();
+
+        // OpenGL描画のためのキャンバスを生成する。
+        GLProfile profile = GLProfile.get(GLProfile.GL2);
+        GLCapabilities capabilities = new GLCapabilities(profile);
+        capabilities.setDoubleBuffered(true);
+        GLCanvas aCanvas = new GLCanvas(capabilities);
+        aCanvas.addGLEventListener(this);
+
+        // フレームを生成し、上記のキャンバスを乗せて、ウィンドウとして開く。
+        JFrame aFrame = new JFrame(this.displayObject.windowTitle());
+        aFrame.add(aCanvas);
+        aFrame.addNotify();
+        int titleBarHeight = aFrame.getInsets().top;
+        aFrame.setSize(400, 400 + titleBarHeight);
+        aFrame.setLocationRelativeTo(null);
+        // aFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        aFrame.addWindowListener(this);
+        aFrame.setFocusable(false);
+        aFrame.setVisible(true);
+
+        return;
+    }
+
+    /**
+     * OpenGL起動時に初期化のために呼び出される。
+     * @param aDrawable OpenGLの描画ダーゲット
+     */
+    public void init(GLAutoDrawable aDrawable)
+    {
+        // System.out.println("init");
+
+        // グラフィックライブラリ（gl）を獲得し、
+        // グラフィックライブラリユーティリティ（glu）と
+        // グラフィックライブラリユーティリティツールキット（glut）を生成する。
+        this.gl = aDrawable.getGL().getGL2();
+        this.glu = new GLU();
+        this.glut = new GLUT();
+
+        // 材質の有効化
+        // 陰線隠面処理の有効化
+        // 片面表示機能の無効化
+        // 法線ベクトルの有効化
+        this.gl.glEnable(GL2.GL_COLOR_MATERIAL);
+        this.gl.glEnable(GL2.GL_DEPTH_TEST);
+        this.gl.glDisable(GL2.GL_CULL_FACE);
+        this.gl.glEnable(GL2.GL_NORMALIZE);
+
+        return;
+    }
+
+    /**
+     * OpenGL描画を行う際に呼び出される。
+     * @param aDrawable OpenGLの描画ダーゲット
+     */
+    public void display(GLAutoDrawable aDrawable)
+    {
+        // System.out.println("display");
+
+        // 視界（視点・注視点・上方向ベクトル・視界角・近・遠）をティーポットから取得して整（設）える。
+        double[] eyePoint = this.displayObject.eyePoint();
+        double[] sightPoint = this.displayObject.sightPoint();
+        double[] upVector = this.displayObject.upVector();
+        double fovy = this.displayObject.fovy();
+        double near = this.displayObject.near();
+        double far = this.displayObject.far();
+
+        // キャンバス（ウィンドウ）の大きさからアスペクト比を求める。
+        double aspect = (double)width / (double)height;
+
+        // プロジェクション（遠近法）を設定する。
+        this.gl.glMatrixMode(GL2.GL_PROJECTION);
+        this.gl.glLoadIdentity();
+        this.glu.gluPerspective(fovy, aspect, near, far);
+
+        // 視界を設定する。
+        this.gl.glMatrixMode(GL2.GL_MODELVIEW);
+        this.gl.glLoadIdentity();
+        this.glu.gluLookAt(
+                           eyePoint[0], eyePoint[1], eyePoint[2],
+                           sightPoint[0], sightPoint[1], sightPoint[2],
+                           upVector[0], upVector[1], upVector[2]);
+
+        // キャンバスをクリアする。
+        this.gl.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+        this.gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
+
+        // 照明を設定する。
+        this.gl.glEnable(GL2.GL_LIGHTING);
+        this.gl.glLightModelfv(GL2.GL_LIGHT_MODEL_AMBIENT, this.asFloatBuffer(new float[] { 0.5f, 0.5f, 0.5f, 1.0f }));
+        this.gl.glLightModelf(GL2.GL_LIGHT_MODEL_LOCAL_VIEWER, 0.0f);
+        this.gl.glLightModelf(GL2.GL_LIGHT_MODEL_TWO_SIDE, 1.0f);
+        this.gl.glEnable(GL2.GL_LIGHT0);
+        this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_POSITION, this.asFloatBuffer(new float[] { 0.0f, 0.0f, 1.0f, 0.0f }));
+        this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_SPOT_DIRECTION, this.asFloatBuffer(new float[] { 0.0f, 0.0f, -1.0f }));
+        this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_SPOT_CUTOFF, this.asFloatBuffer(new float[] { 90.0f }));
+        this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, this.asFloatBuffer(new float[] { 0.5f, 0.5f, 0.5f, 1.0f }));
+        this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_SPECULAR, this.asFloatBuffer(new float[] { 0.5f, 0.5f, 0.5f, 1.0f }));
+        this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_LINEAR_ATTENUATION, this.asFloatBuffer(new float[] { 0.0f }));
+        this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_QUADRATIC_ATTENUATION, this.asFloatBuffer(new float[] { 0.0f }));
+        this.gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_CONSTANT_ATTENUATION, this.asFloatBuffer(new float[] { 1.0f }));
+
+        // ティーポットをレンダリング（描画）する。
+        this.displayObject.rendering(this.gl, this.glu, this.glut);
+
+        return;
+    }
+
+    /**
+     * OpenGL表示モードや表示デバイスが変更された際に呼び出される。
+     * @param aDrawable OpenGLの描画ダーゲット
+     * @param modeChanged 表示モードが変更されたか否か
+     * @param deviceChanged 表示デバイスが変更されたか否か
+     */
+    public void displayChanged(GLAutoDrawable aDrawable, boolean modeChanged, boolean deviceChanged)
+    {
+        // System.out.println("displayChanged");
+
+        return;
+    }
+
+    /**
+     * OpenGLの資源が破棄された際に呼び出される。
+     * @param aDrawable OpenGLの描画ダーゲット
+     */
+    public void dispose(GLAutoDrawable aDrawable)
+    {
+        // System.out.println("dispose");
+
+        return;
+    }
+
+    /**
+     * OpenGL表示領域が変更された際に呼び出される。
+     * @param aDrawable OpenGLの描画ダーゲット
+     * @param x 表示領域のX座標
+     * @param y 表示領域のY座標
+     * @param w 表示領域の幅
+     * @param h 表示領域の高さ
+     */
+    public void reshape(GLAutoDrawable aDrawable, int x, int y, int w, int h)
+    {
+        // System.out.println("reshape");
+
+        this.width = w;
+        this.height = h;
+
+        this.gl.glViewport(0, 0, width, height);
+
+        return;
+    }
+
+    /**
+     * float配列をfloatバッファに変換する。
+     * @param array float配列
+     * @return floatバッファ
+     */
+    private FloatBuffer asFloatBuffer(float[] array)
+    {
+        FloatBuffer buffer = FloatBuffer.allocate(array.length);
+        for (int i = 0; i &lt; array.length; i++)
+        {
+            buffer.put(array[i]);
+        }
+        buffer.rewind();
+
+        return buffer;
+    }
+
+    /**
+     * ウィンドウを閉じようとした時に呼び出される。
+     * @param aWindowEvent ウィンドウイベント
+     */
+    public void windowClosing(WindowEvent aWindowEvent)
+    {
+        // System.out.println(aWindowEvent.paramString());
+
+        // 終了する。
+        System.exit(0);
+
+        return;
+    }
+
+    /**
+     * ティーポットを描くOpenGLのウィンドウを開く。
+     * @param arguments コマンドの引数列（文字列の配列）
+     */
+    public static void main(String[] arguments)
+    {
+        // System.out.println("main");
+
+        new Example();
+
+        return;
+    }
+}
+</pre>
+</blockquote>
+<div class="belt">
+<h3><a name="Result">実行結果</a></h3>
+</div>
+<p>「Teapot」の中の赤字で「<span style="color:#ff0000">// 作成してください。</span>」と書かれている部分を作っていない場合には、何も描き出されないウィンドウが1枚開きます。</p>
+<blockquote><img src="images/TeapotBefore.jpg" width="402" height="424" alt="TeapotBefore"></blockquote>
+<p>「Teapot」の中の赤字で「<span style="color:#ff0000">// 作成してください。</span>」と書かれている部分（約30行ほどのプログラム）を作成すれば、ティーポットをソリッドとワイヤーフレームの両方で描画することができます。</p>
+<blockquote><img src="images/TeapotAfter.jpg" width="402" height="424" alt="TeapotAfter"></blockquote>
+<p>Javaドキュメント（javadoc）とアプリケーションを示しておきます。</p>
+<blockquote><a href="JavaDoc/index.html"><img src="images/JavaDoc.png" width="696" height="453" alt="JavaDoc"></a></blockquote>
+<blockquote><a href="http://www.cc.kyoto-su.ac.jp/~atsushi/deployment/AP/Java/Teapot.app.tar.gz"><img src="images/TeapotApp.jpg" width="256" height="256" alt="TeapotApp"></a></blockquote>
+<blockquote>
+<pre>
+$ <span style="color:#ff0000">(cd ~/Downloads/ ; curl -O http://www.cc.kyoto-su.ac.jp/~atsushi/deployment/AP/Java/Teapot.app.tar.gz)</span> <span style="font-size: x-small; color:#00ff00"># まず、アーカイブファイルをダウンロード</span>
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 4187k  100 4187k    0     0  3018k      0  0:00:01  0:00:01 --:--:-- 3018k
+$ <span style="color:#ff0000">(cd ~/Downloads/ ; cat ./Teapot.app.tar.gz ; rm -f ./Teapot.app.tar.gz) | (cd ~/Desktop/ ; tar xvfz -)</span> <span style="font-size: x-small; color:#00ff00"># 次に、アーカイブファイルを展開して、デスクトップ上にアプリケーションを配置</span>
+x ./Teapot.app/
+x ./Teapot.app/Contents/
+x ./Teapot.app/Contents/MacOS/
+x ./Teapot.app/Contents/Resources/
+x ./Teapot.app/Contents/Info.plist
+x ./Teapot.app/Contents/PkgInfo
+x ./Teapot.app/Contents/Resources/JavaApp.icns
+x ./Teapot.app/Contents/Resources/applet.rsrc
+x ./Teapot.app/Contents/Resources/description.rtfd/
+x ./Teapot.app/Contents/Resources/Java/
+x ./Teapot.app/Contents/Resources/Scripts/
+x ./Teapot.app/Contents/Resources/applet.icns
+x ./Teapot.app/Contents/Resources/Scripts/main.scpt
+x ./Teapot.app/Contents/Resources/Java/teapot-natives-macosx-universal.jar
+x ./Teapot.app/Contents/Resources/Java/natives/
+x ./Teapot.app/Contents/Resources/Java/teapot.jar
+x ./Teapot.app/Contents/Resources/Java/natives/macosx-universal/
+x ./Teapot.app/Contents/Resources/Java/natives/macosx-universal/libnativewindow_awt.dylib
+x ./Teapot.app/Contents/Resources/Java/natives/macosx-universal/libgluegen_rt.dylib
+x ./Teapot.app/Contents/Resources/Java/natives/macosx-universal/libnativewindow_macosx.dylib
+x ./Teapot.app/Contents/Resources/Java/natives/macosx-universal/libjogl_mobile.dylib
+x ./Teapot.app/Contents/Resources/Java/natives/macosx-universal/libnewt_head.dylib
+x ./Teapot.app/Contents/Resources/Java/natives/macosx-universal/libjogl_desktop.dylib
+x ./Teapot.app/Contents/Resources/description.rtfd/TXT.rtf
+x ./Teapot.app/Contents/MacOS/applet
+$ <span style="color:#ff0000">(cd ~/Desktop/ ; xattr -cr ./Teapot.app)</span> <span style="font-size: x-small; color:#00ff00"># そして、アプリケーションの拡張属性を再帰的にクリア</span>
+$ <span style="color:#ff0000">(cd ~/Desktop/ ; sudo spctl --master-disable ; open ./Teapot.app ; sudo spctl --master-enable)</span> <span style="font-size: x-small; color:#00ff00"># openコマンドで起動、ただし、Gatekeeperを開け閉めしながら、または、TryJOGL.appをダブルクリック</span>
+Password: <span style="font-size: x-small; color:#00ff00"># 管理者のパスワードを入力、Gatekeeperの開閉のために</span>
+$ 
+</pre>
+</blockquote>
+<hr>
+<div class="right-small">Updated: 2020/01/04 (Created: 2010/11/11) <a href="http://www.kyoto-su.ac.jp/"><img class="borderless" src="http://www.cc.kyoto-su.ac.jp/~atsushi/thumbnails/KSU.jpg" width="115" height="30" alt="KSU"></a> <a href="http://www.cc.kyoto-su.ac.jp/~atsushi/"><img class="borderless" src="http://www.cc.kyoto-su.ac.jp/~atsushi/thumbnails/AokiHanko.jpg" width="32" height="32" alt="AokiHanko"></a></div>
+</body>
+</html>
